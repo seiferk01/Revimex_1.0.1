@@ -22,6 +22,7 @@ class FavoritesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setCustomBackgroundAndNavbar()
+        favs = self;
         
         anchoPantalla = view.bounds.width
         largoPantalla = view.bounds.height
@@ -66,12 +67,12 @@ class FavoritesController: UIViewController {
         self.setCustomBackgroundAndNavbar()
         
         if let userId = UserDefaults.standard.object(forKey: "userId") as? Int,cambioFavoritos{
-            msotrarFavoritos(userId: userId)
+            msotrarFavoritos(userId: userId);
         }
     }
     
     
-    func msotrarFavoritos(userId: Int){
+    public func msotrarFavoritos(userId: Int){
         
         //indicador de loading
         let activityIndicator = UIActivityIndicatorView()
@@ -258,6 +259,7 @@ class FavoritesController: UIViewController {
     
     
     func solicitarRegistro(){
+        
         let contenedorInfo = UIView()
         contenedorInfo.frame = CGRect(x: anchoPantalla * (0.1), y: (largoPantalla * (0.08)), width: anchoPantalla * (0.8), height: largoPantalla * (0.8))
         
@@ -276,6 +278,7 @@ class FavoritesController: UIViewController {
         view.addSubview(contenedorInfo)
         view.addSubview(loginBtn)
         view.sendSubview(toBack: contenedorInfo)
+        
     }
     
     

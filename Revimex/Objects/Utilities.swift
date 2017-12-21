@@ -17,6 +17,8 @@ import Material
 */
 
 //genera un borde inferior en un campo de texto
+
+
 extension UITextField {
     func borderBottom(color: UIColor,borderSize: CGFloat){
         let border = CALayer()
@@ -129,6 +131,10 @@ extension TextField{
             textColor = Color.black;
         }
     }
+    
+    func getActualText() -> String! {
+        return self.text
+    }
 }
 
 //para generar bordes
@@ -215,7 +221,7 @@ var propiedad: Details = Details(Id: "",calle: "",colonia: "",construccion: "",c
 //variable para obtener la imagen de fondo de la descripcion
 var descriptionImageBackground = UIImage()
 
-
+var favs:FavoritesController!;
 
 class Utilities: NSObject {
 

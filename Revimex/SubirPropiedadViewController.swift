@@ -218,10 +218,40 @@ class SubirPropiedadViewController: UIViewController{
             let rowTotal = [
                 "detallesInmueble" : rowsDetalles!,
                 "ubicacionInmueble" : rowsUbicacion!,
-                "fotosInmueble" : rowsFotos!
             ];
             print(rowTotal);
+            do{
+                let data = try JSONSerialization.data(withJSONObject: rowTotal , options: .prettyPrinted);
+                let dataString:String! = String(data: data, encoding: .utf8);
+                 print(dataString);
+                subirPropiedad(data: data);
+            }catch{
+                print(error);
+            }
         };
+    }
+    
+    func subirPropiedad(data:Data!){
+        let url = "http://18.221.106.92/api/public/apps/prueba";
+        guard let urlinfo = URL(string: url) else{print("Error URL"); return};
+        var request = URLRequest(url: urlinfo);
+        request.httpMethod = "POST";
+        request.httpBody = data;
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type");
+        let session = URLSession.shared;
+        session.dataTask(with: request){(data,response,error) in
+            if(error == nil){
+                print(response);
+                if let data = data{
+                    do{
+                        let json = try JSONSerialization.jsonObject(with: data)
+                        print(json)
+                    }catch{
+                        print(error);
+                    }
+                }
+            }
+            }.resume();
     }
     
 }

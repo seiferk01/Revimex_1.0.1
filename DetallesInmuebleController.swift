@@ -30,7 +30,7 @@ class DetallesInmuebleController: FormViewController,FormValidate{
         super.viewDidLoad()
         rows = [:];
         tipoInmueble = ActionSheetRow<String>(){ row in
-            row.tag = "tipoInm";
+            row.tag = "tipoInmueble";
             row.title = "Tipo de inmueble";
             row.options = tipoInmuebleArray;
             row.selectorTitle = "Seleccione el tipo de inmueble";
@@ -38,7 +38,7 @@ class DetallesInmuebleController: FormViewController,FormValidate{
         };
         
         recamaras = ActionSheetRow<String>(){ row in
-            row.tag = "rcms";
+            row.tag = "recamaras";
             row.title = "Recámaras"
             row.options = nums;
             row.selectorTitle = "Número de recámaras";
@@ -47,7 +47,7 @@ class DetallesInmuebleController: FormViewController,FormValidate{
         };
         
         banos = ActionSheetRow<String>(){ row in
-            row.tag = "bns";
+            row.tag = "banos";
             row.title = "Baños";
             row.options = nums;
             row.selectorTitle = "Número de baños"
@@ -56,21 +56,21 @@ class DetallesInmuebleController: FormViewController,FormValidate{
         }
         
         terreno = IntRow(){ row in
-            row.tag = "trrn";
+            row.tag = "terreno";
             row.title = "Superficie del terreno";
             row.placeholder = "0";
             row.add(rule: RuleRequired());
         };
         
         construccion = IntRow(){ row in
-            row.tag = "cnst";
+            row.tag = "construccion";
             row.title = "Superficie de Construcciòn"
             row.placeholder = "0";
             row.add(rule: RuleRequired());
         };
         
         niveles = ActionSheetRow<String>(){ row in
-            row.tag = "nvls";
+            row.tag = "niveles";
             row.title = "Niveles";
             row.options = nums;
             row.selectorTitle = "Cantidad de niveles";
@@ -79,7 +79,7 @@ class DetallesInmuebleController: FormViewController,FormValidate{
         };
         
         estacionamiento = ActionSheetRow<String>(){ row in
-            row.tag = "estcn";
+            row.tag = "estacionamiento";
             row.title = "Estacionamiento";
             row.options = numsC;
             row.selectorTitle = "Plazas de estacionamiento"
@@ -88,50 +88,46 @@ class DetallesInmuebleController: FormViewController,FormValidate{
         };
         
         antiguedad = IntRow(){ row in
-            row.tag = "antg";
+            row.tag = "antiguedad";
             row.title = "Años de Atiguedad";
             row.placeholder = "0";
             row.add(rule: RuleRequired());
         };
         
         descripcion = TextAreaRow("Seleccione los servicios con los que cuente"){ row in
-            row.tag = "dscrp";
+            row.tag = "descripcion";
             row.title = "Ingrese una Descripción de su inmueble"
             row.placeholder="Descripción...";
             row.add(rule: RuleRequired());
         };
         
         serviciosBasicos = MultipleSelectorRow<String>(){ row in
-            row.tag = "srvBsc";
+            row.tag = "servicios";
             row.title = "Servicios Básicos";
             row.options = serviciosBasicosArray;
             row.selectorTitle = "Seleccione los Servicios";
-            row.tag = "sb"
             row.add(rule: RuleRequired());
         };
         
         areas = MultipleSelectorRow<String>{ row in
-            row.tag = "ars";
+            row.tag = "areas";
             row.title = "Áreas";
             row.options = areasArray;
             row.selectorTitle = "Seleccione áreas que tenga su propiedad";
-            row.tag = "ars"
         }
         
         detalles = MultipleSelectorRow<String>{ row in
-            row.tag = "dtlls";
+            row.tag = "detalles";
             row.title = "Detalles";
             row.options = detallesArray;
             row.selectorTitle = "Detalles de su propiedad"
-            row.tag = "dtll"
         };
         
         entorno = MultipleSelectorRow<String>{ row in
-            row.tag = "entrn";
+            row.tag = "entorno";
             row.title = "Entorno";
             row.options = entornoArray;
             row.selectorTitle = "Entorno en el que se encuentra su propiedad";
-            row.tag = "ent"
         };
         
         form +++ Section("Detalles del Inmueble")<<<tipoInmueble<<<recamaras<<<banos<<<terreno<<<construccion<<<niveles<<<estacionamiento<<<antiguedad<<<descripcion+++Section("Servicios con los que Cuente")<<<serviciosBasicos<<<areas<<<detalles<<<entorno;
@@ -172,10 +168,10 @@ class DetallesInmuebleController: FormViewController,FormValidate{
         rows![estacionamiento.tag!] = self.estacionamiento.value!;
         rows![antiguedad.tag!] = self.antiguedad.value!;
         rows![descripcion.tag!] = self.descripcion.value!;
-        rows![serviciosBasicos.tag!] = self.serviciosBasicos.value!;
-        rows![areas.tag!] = self.areas.value;
-        rows![detalles.tag!] = self.detalles.value;
-        rows![entorno.tag!] = self.entorno.value;
+        rows![serviciosBasicos.tag!] = Array(self.serviciosBasicos.value!);
+        rows![areas.tag!] = Array(self.areas.value!);
+        rows![detalles.tag!] = Array(self.detalles.value!);
+        rows![entorno.tag!] = Array(self.entorno.value!);
         return self.rows;
     }
 

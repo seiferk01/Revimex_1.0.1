@@ -741,6 +741,22 @@
             </objects>
             <point key="canvasLocation" x="7919" y="1303"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="I9w-oA-FaZ">
+            <objects>
+                <viewController id="K40-pw-Q0A" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ies-l1-rmu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VzZ-RF-QnK"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="375"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RhM-C7-Yoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8615" y="1303"/>
+        </scene>
         <!--Fotos Inmueble Controller-->
         <scene sceneID="vB2-Mh-IZG">
             <objects>
@@ -820,7 +836,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kfS-01-q8O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8573.6000000000004" y="1302.9985007496252"/>
+            <point key="canvasLocation" x="9303" y="1303"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5R4-7U-DuS">

@@ -36,7 +36,7 @@ class UbicacionInmuebleController: FormViewController,FormValidate {
         codeZip = ZipCodeRow(){ row in
             row.title = "Código Postal";
             row.placeholder = "XXXXX";
-            row.tag = "code_zip";
+            row.tag = "codigoPostal";
             row.add(rule: RuleRequired());
         };
         
@@ -44,7 +44,7 @@ class UbicacionInmuebleController: FormViewController,FormValidate {
             row.title = "Estado";
             row.options = [""];
             row.value = "";
-            row.tag = "edo";
+            row.tag = "estado";
             row.add(rule: RuleRequired());
         };
         
@@ -52,7 +52,7 @@ class UbicacionInmuebleController: FormViewController,FormValidate {
             row.title = "Municipio";
             row.options = [""];
             row.value = "";
-            row.tag = "mun"
+            row.tag = "municipio"
             row.add(rule: RuleRequired());
         };
         
@@ -60,7 +60,7 @@ class UbicacionInmuebleController: FormViewController,FormValidate {
             row.title = "Colonia";
             row.options = [];
             row.selectorTitle = "Por favor ingrese antes su Código Postal";
-            row.tag = "col";
+            row.tag = "colonia";
             row.add(rule: RuleRequired());
         }
         
@@ -73,7 +73,7 @@ class UbicacionInmuebleController: FormViewController,FormValidate {
         
         numExt = IntRow(){row in
             row.title = "Número Exterior";
-            row.tag = "numExt";
+            row.tag = "numeroExterior";
             row.placeholder = "Nº.  ";
             row.add(rule: RuleRequired());
         }
@@ -81,7 +81,7 @@ class UbicacionInmuebleController: FormViewController,FormValidate {
         mnz = TextRow(){row in
             row.title = "Manzana";
             row.placeholder = "...";
-            row.tag = "mnz";
+            row.tag = "manzana";
         }
         
         lote = TextRow(){row in

@@ -40,7 +40,7 @@ class UserInfoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         imgUser.contentMode = .scaleAspectFit;
-        imgUser.backgroundColor = UIColor.white;
+        imgUser.backgroundColor = UIColor(white: 1, alpha: 0.5);
         imgUser.clipsToBounds = true
         imgUser.layer.cornerRadius = imgUser.frame.size.width/2;
         imgUser.layer.borderWidth = 1.5;
@@ -54,7 +54,7 @@ class UserInfoCell: UITableViewCell {
     }
     
     public func set(datos:UserInfoCellContent!){
-        imgBackground.image = datos.imgUser;
+        imgUser.image = datos.imgUser;
         imgBackground.image = datos.imgBackground;
     }
     
