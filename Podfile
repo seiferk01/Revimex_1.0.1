@@ -14,6 +14,7 @@ target 'Revimex' do
   pod 'FontAwesome.swift'
   pod 'Eureka'
   pod 'Material', '~> 2.0'
+  pod 'ImageSlideshow', '~> 1.4'
 
   # Pods for Revimex
 

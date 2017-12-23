@@ -913,9 +913,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90W-1B-Wp3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
-                            </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWf-ie-LRa">
                                 <rect key="frame" x="0.0" y="310" width="375" height="470"/>
                                 <subviews>
@@ -960,7 +957,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ha-cA-C1l">
-                                        <rect key="frame" x="0.0" y="50.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="51" width="375" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10V-hD-2ne">
                                                 <rect key="frame" x="0.0" y="0.0" width="185" height="50"/>
@@ -1052,7 +1049,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfQ-Wg-aQs">
-                                        <rect key="frame" x="0.0" y="151.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="152" width="375" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wde-4N-4zl">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -1129,11 +1126,13 @@
                                     <constraint firstItem="zEh-2P-B8k" firstAttribute="centerX" secondItem="haT-6C-EbO" secondAttribute="centerX" id="7IQ-pT-Ksn"/>
                                     <constraint firstAttribute="bottom" secondItem="TM0-zD-iu5" secondAttribute="bottom" id="Hiv-ot-GRt"/>
                                     <constraint firstItem="zEh-2P-B8k" firstAttribute="firstBaseline" secondItem="TM0-zD-iu5" secondAttribute="firstBaseline" id="Jhu-3s-Mn9"/>
+                                    <constraint firstItem="TM0-zD-iu5" firstAttribute="firstBaseline" secondItem="zEh-2P-B8k" secondAttribute="firstBaseline" id="NsH-iC-wHn"/>
                                     <constraint firstItem="zEh-2P-B8k" firstAttribute="baseline" secondItem="TM0-zD-iu5" secondAttribute="baseline" id="Q4F-u7-ohn"/>
                                     <constraint firstItem="TM0-zD-iu5" firstAttribute="top" secondItem="zEh-2P-B8k" secondAttribute="top" id="RGe-rN-efS"/>
                                     <constraint firstItem="zEh-2P-B8k" firstAttribute="bottom" secondItem="ZK6-uC-vjj" secondAttribute="bottom" id="Tud-fR-1zW"/>
                                     <constraint firstItem="zEh-2P-B8k" firstAttribute="top" secondItem="ZK6-uC-vjj" secondAttribute="top" id="bBp-3s-j9b"/>
                                     <constraint firstItem="ZK6-uC-vjj" firstAttribute="leading" secondItem="zEh-2P-B8k" secondAttribute="trailing" constant="35" id="cpM-0z-7ae"/>
+                                    <constraint firstItem="zEh-2P-B8k" firstAttribute="baseline" secondItem="TM0-zD-iu5" secondAttribute="baseline" id="eWA-So-9YX"/>
                                     <constraint firstItem="TM0-zD-iu5" firstAttribute="top" secondItem="haT-6C-EbO" secondAttribute="top" id="x0E-HW-93N"/>
                                     <constraint firstItem="zEh-2P-B8k" firstAttribute="leading" secondItem="TM0-zD-iu5" secondAttribute="trailing" constant="35" id="zR9-eo-sEC"/>
                                 </constraints>
@@ -1168,25 +1167,29 @@
                                     <constraint firstAttribute="bottom" secondItem="DcM-bU-IId" secondAttribute="bottom" constant="-3" id="z7L-7b-dGG"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHs-WA-Llz" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="90W-1B-Wp3" firstAttribute="leading" secondItem="ejs-T1-xmW" secondAttribute="leading" id="72H-vc-fP1"/>
-                            <constraint firstItem="90W-1B-Wp3" firstAttribute="leading" secondItem="haT-6C-EbO" secondAttribute="leading" id="A0g-PX-ykN"/>
-                            <constraint firstAttribute="trailing" secondItem="90W-1B-Wp3" secondAttribute="trailing" id="D38-aa-Kj1"/>
+                            <constraint firstAttribute="trailing" secondItem="hHs-WA-Llz" secondAttribute="trailing" id="Cqj-B0-PAT"/>
                             <constraint firstItem="UWf-ie-LRa" firstAttribute="top" secondItem="o24-ie-VNW" secondAttribute="bottom" id="HKP-Wi-ARa"/>
-                            <constraint firstItem="90W-1B-Wp3" firstAttribute="top" secondItem="ejs-T1-xmW" secondAttribute="top" id="IDn-8A-owD"/>
+                            <constraint firstItem="hHs-WA-Llz" firstAttribute="trailing" secondItem="haT-6C-EbO" secondAttribute="trailing" id="LlY-HZ-nBy"/>
                             <constraint firstItem="o24-ie-VNW" firstAttribute="top" secondItem="haT-6C-EbO" secondAttribute="bottom" id="Mdc-Cc-hYG"/>
                             <constraint firstItem="haT-6C-EbO" firstAttribute="leading" secondItem="o24-ie-VNW" secondAttribute="leading" id="NLQ-6G-9KY"/>
-                            <constraint firstItem="90W-1B-Wp3" firstAttribute="trailing" secondItem="haT-6C-EbO" secondAttribute="trailing" id="RIF-X9-gk0"/>
                             <constraint firstItem="o24-ie-VNW" firstAttribute="leading" secondItem="UWf-ie-LRa" secondAttribute="leading" id="TlY-U9-Ib3"/>
+                            <constraint firstItem="haT-6C-EbO" firstAttribute="top" secondItem="hHs-WA-Llz" secondAttribute="bottom" id="alo-DP-88K"/>
                             <constraint firstItem="o24-ie-VNW" firstAttribute="trailing" secondItem="UWf-ie-LRa" secondAttribute="trailing" id="cYe-nx-g7p"/>
                             <constraint firstItem="UWf-ie-LRa" firstAttribute="bottom" secondItem="NXv-3C-rt1" secondAttribute="bottom" id="dDg-A7-LB1"/>
                             <constraint firstItem="o24-ie-VNW" firstAttribute="top" secondItem="ejs-T1-xmW" secondAttribute="top" constant="280" id="eGX-Zg-nBF"/>
+                            <constraint firstItem="hHs-WA-Llz" firstAttribute="leading" secondItem="ejs-T1-xmW" secondAttribute="leading" id="ixO-Ho-Bc9"/>
                             <constraint firstItem="haT-6C-EbO" firstAttribute="top" secondItem="ejs-T1-xmW" secondAttribute="top" constant="240" id="lTm-Ne-J4E"/>
                             <constraint firstItem="haT-6C-EbO" firstAttribute="trailing" secondItem="o24-ie-VNW" secondAttribute="trailing" id="o8W-wM-DXQ"/>
                             <constraint firstItem="UWf-ie-LRa" firstAttribute="top" secondItem="ejs-T1-xmW" secondAttribute="top" constant="310" id="oBW-Wn-P6r"/>
-                            <constraint firstItem="haT-6C-EbO" firstAttribute="top" secondItem="90W-1B-Wp3" secondAttribute="bottom" id="vE1-dl-znh"/>
+                            <constraint firstItem="hHs-WA-Llz" firstAttribute="leading" secondItem="haT-6C-EbO" secondAttribute="leading" id="sg2-Gv-o2E"/>
+                            <constraint firstItem="hHs-WA-Llz" firstAttribute="top" secondItem="ejs-T1-xmW" secondAttribute="top" id="xus-im-ZK1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NXv-3C-rt1"/>
                     </view>
@@ -1198,7 +1201,7 @@
                         <outlet property="botonesContainer" destination="haT-6C-EbO" id="pIp-Yi-Ixg"/>
                         <outlet property="carritoBtn" destination="TM0-zD-iu5" id="HIQ-BV-oUz"/>
                         <outlet property="constuccion" destination="TRF-ca-bQl" id="RKD-GU-xZc"/>
-                        <outlet property="contenedorCarousel" destination="90W-1B-Wp3" id="v0c-zD-BJQ"/>
+                        <outlet property="contenedorCarousel" destination="hHs-WA-Llz" id="PP4-hK-sTb"/>
                         <outlet property="descripcion" destination="FmG-00-KhQ" id="sAH-P7-0p9"/>
                         <outlet property="direccion" destination="Wde-4N-4zl" id="IOl-qw-fd0"/>
                         <outlet property="estado" destination="tVh-Vv-rPW" id="2pr-37-STl"/>
@@ -1899,6 +1902,6 @@
         <segue reference="Jc2-OJ-Tv8"/>
         <segue reference="4jM-kB-cRG"/>
         <segue reference="HFz-xn-k93"/>
-        <segue reference="9pP-Lr-hLn"/>
+        <segue reference="wXX-iY-X9e"/>
     </inferredMetricsTieBreakers>
 </document>
