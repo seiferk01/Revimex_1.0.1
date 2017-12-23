@@ -23,6 +23,8 @@ class CarritoController: UIViewController {
         super.viewDidLoad()
         self.setCustomBackgroundAndNavbar()
         
+        instanciaCarritoController = self
+        
         anchoPantalla = view.bounds.width
         largoPantalla = view.bounds.height
         
@@ -43,9 +45,6 @@ class CarritoController: UIViewController {
         super.viewDidAppear(animated)
         self.setCustomBackgroundAndNavbar()
         
-        if let userId = UserDefaults.standard.object(forKey: "userId") as? Int,cambioCarritos{
-            mostrarCarritos(userId: userId)
-        }
     }
     
     
@@ -128,7 +127,6 @@ class CarritoController: UIViewController {
                 }
                 
                 OperationQueue.main.addOperation({
-                    cambioCarritos = false
                     self.mostrarMisCarritos()
                     activityIndicator.stopAnimating()
                     background.removeFromSuperview()

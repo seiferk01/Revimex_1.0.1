@@ -23,6 +23,8 @@ class FavoritesController: UIViewController {
         super.viewDidLoad()
         self.setCustomBackgroundAndNavbar()
         
+        instanciaFavoritosController = self
+        
         anchoPantalla = view.bounds.width
         largoPantalla = view.bounds.height
         let top = (navigationController?.navigationBar.bounds.height)!+20
@@ -49,7 +51,7 @@ class FavoritesController: UIViewController {
         view.addSubview(sugerencias)
         
         if let userId = UserDefaults.standard.object(forKey: "userId") as? Int{
-            msotrarFavoritos(userId: userId)
+            mostrarFavoritos(userId: userId)
         }
         else{
             solicitarRegistro()
@@ -64,14 +66,10 @@ class FavoritesController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.setCustomBackgroundAndNavbar()
-        
-        if let userId = UserDefaults.standard.object(forKey: "userId") as? Int,cambioFavoritos{
-            msotrarFavoritos(userId: userId)
-        }
     }
     
     
-    func msotrarFavoritos(userId: Int){
+    func mostrarFavoritos(userId: Int){
         
         //indicador de loading
         let activityIndicator = UIActivityIndicatorView()
@@ -146,7 +144,6 @@ class FavoritesController: UIViewController {
                 }
                 
                 OperationQueue.main.addOperation({
-                    cambioFavoritos = false
                     self.mostrarMisFavoritos()
                     activityIndicator.stopAnimating()
                     background.removeFromSuperview()
@@ -158,6 +155,7 @@ class FavoritesController: UIViewController {
     
     func mostrarMisFavoritos(){
         
+        print(arrayFavoitos)
         let largoDeFavorito = (largoPantalla * 0.6)
         let tabBarHeight = self.tabBarController?.tabBar.frame.size.height
         

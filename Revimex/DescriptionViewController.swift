@@ -14,7 +14,8 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var descripcionBtn: UIButton!
     @IBOutlet weak var serviciosBtn: UIButton!
     
-    
+    var activityIndicator = UIActivityIndicatorView()
+    var background = UIView()
     
     var info:UIViewController?
     var ubication:UIViewController?
@@ -30,6 +31,9 @@ class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        instanciaDescripcionController = self
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -73,7 +77,7 @@ class DescriptionViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
         
         if propiedad.fotos.count > 0{
-            descriptionImageBackground = Utilities.traerImagen(urlImagen: propiedad.fotos[0])
+            descriptionImageBackground = Utilities.traerImagen(urlImagen: propiedad.fotos[0] )
         }
         else{
             descriptionImageBackground = Utilities.traerImagen(urlImagen: "")
@@ -112,6 +116,19 @@ class DescriptionViewController: UIViewController {
     
     @IBAction func showServices(_ sender: Any) {
         actualViewController = arrayViews[1];
+    }
+    
+    func inciarCarga(){
+        activityIndicator = UIActivityIndicatorView()
+        background = Utilities.activityIndicatorBackground(activityIndicator: activityIndicator)
+        background.center = self.view.center
+        self.view.addSubview(background)
+        activityIndicator.startAnimating()
+    }
+    
+    func detenerCarga(){
+        activityIndicator.stopAnimating()
+        background.removeFromSuperview()
     }
     
 }

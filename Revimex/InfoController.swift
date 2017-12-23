@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InfoController: UIViewController {
+class InfoController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var descripcion: UITextView!
     @IBOutlet weak var contenedorCarousel: UIScrollView!
@@ -30,20 +30,25 @@ class InfoController: UIViewController {
     @IBOutlet weak var habitacionesImage: UIImageView!
     @IBOutlet weak var bañosImage: UIImageView!
     
+    //define si el metodo del boton carrito sera agregar(true) o eliminar(false)
     var agregarCarrito = true
     var idCarrito = -1
-    
-    var activityIndicator = UIActivityIndicatorView()
-    var background = UIView()
     
     //variable para el carousel
     var vistaCarouselGrande = UIView()
     var contenedorCarouselGrande = UIScrollView()
+    var photoIndex = 0
+    var nuevoSlide = 0.0
+    var slideAnterior = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        photoIndex = 0
         
+        contenedorCarousel.delegate = self
+        
+        //inicializacion y formato de los elementos de la vista
         habitacionesImage.image = UIImage(named: "habitaciones.png")
         bañosImage.image = UIImage(named: "baños.png")
         estado.font = UIFont.boldSystemFont(ofSize: 17.0)
@@ -75,16 +80,14 @@ class InfoController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    
     //llamado a los detalles de la propiedad seleccionada
     func requestDetails() {
         
-        //indicador de loading
-        activityIndicator = UIActivityIndicatorView()
-        background = Utilities.activityIndicatorBackground(activityIndicator: activityIndicator)
-        background.center = self.view.center
-        view.addSubview(background)
-        activityIndicator.startAnimating()
+        
+        //inicia el indicador de carga
+        if instanciaDescripcionController != nil {
+            instanciaDescripcionController.inciarCarga()
+        }
         
         let urlRequestDetails = "http://18.221.106.92/api/public/propiedades/detalle"
         
@@ -110,7 +113,6 @@ class InfoController: UIViewController {
                 
                 do {
                     let json = try JSONSerialization.jsonObject (with: data) as! [String:Any?]
-                    
                     
                     if let propiedadSeleccionada = json["propiedad"] as? NSDictionary {
                         print("*********Propiedad seleccionada***********")
@@ -214,91 +216,151 @@ class InfoController: UIViewController {
         descripcion.isEditable = false
         
         //muestra las fotos
-        showPhotos()
+        //showPhotos()
         
         
     }
     
-    //muestra las fotos
-    func showPhotos() {
-        let ancho = contenedorCarousel.bounds.width
-        let largo = contenedorCarousel.bounds.height
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(carouselTapped(tapGestureRecognizer:)))
-        contenedorCarousel.isUserInteractionEnabled = true
-        contenedorCarousel.addGestureRecognizer(tapGestureRecognizer)
-        
-        contenedorCarousel.contentSize = CGSize(width: ancho * CGFloat(propiedad.fotos.count), height: largo)
-        contenedorCarousel.isPagingEnabled = true
-        contenedorCarousel.showsHorizontalScrollIndicator = false
-        
-        
-        for (index, url) in propiedad.fotos.enumerated() {
-            
-            let marco = UIImageView(image: Utilities.traerImagen(urlImagen: url))
-            
-            marco.frame.origin.x = ancho * CGFloat(index)
-            marco.frame.origin.y = 0
-            marco.frame.size = CGSize(width: ancho, height: largo)
-            contenedorCarousel.addSubview(marco)
-            
-        }
-        
-        activityIndicator.stopAnimating()
-        background.removeFromSuperview()
-    }
+//    //muestra las fotos
+//    func showPhotos() {
+//
+//        let ancho = contenedorCarousel.bounds.width
+//        let largo = contenedorCarousel.bounds.height
+//
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(carouselTapped(tapGestureRecognizer:)))
+//        contenedorCarousel.isUserInteractionEnabled = true
+//        contenedorCarousel.addGestureRecognizer(tapGestureRecognizer)
+//
+//        contenedorCarousel.contentSize = CGSize(width: ancho * CGFloat(propiedad.fotos.count), height: largo)
+//        contenedorCarousel.isPagingEnabled = true
+//        contenedorCarousel.showsHorizontalScrollIndicator = false
+//
+//        if propiedad.fotos.count > 0{
+//
+//            nuevoSlide = Double(contenedorCarousel.contentOffset.x)
+//            slideAnterior = Double(contenedorCarousel.contentOffset.x)
+//
+//            let marco = UIImageView(image: Utilities.traerImagen(urlImagen: propiedad.fotos[0]))
+//
+//            marco.frame.origin.x = 0
+//            marco.frame.origin.y = 0
+//            marco.frame.size = CGSize(width: ancho, height: largo)
+//            contenedorCarousel.addSubview(marco)
+//        }
+//
+////        for (index, url) in propiedad.fotos.enumerated() {
+////
+////            let marco = UIImageView(image: Utilities.traerImagen(urlImagen: url))
+////
+////            marco.frame.origin.x = ancho * CGFloat(index)
+////            marco.frame.origin.y = 0
+////            marco.frame.size = CGSize(width: ancho, height: largo)
+////            contenedorCarousel.addSubview(marco)
+////
+////
+////        }
+//
+//        //detiene el indicador de carga
+//        if instanciaDescripcionController != nil {
+//            instanciaDescripcionController.detenerCarga()
+//        }
+//    }
+//
+//
+//    //accion al presionar en el carousel de fotos pequeño
+//    @objc func carouselTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+//
+//        //inicia el indicador de carga
+//        if instanciaDescripcionController != nil {
+//            instanciaDescripcionController.inciarCarga()
+//        }
+//
+//        vistaCarouselGrande.frame = CGRect(x: 0 ,y: 0 ,width: self.view.frame.width,height: self.view.frame.height)
+//        vistaCarouselGrande.backgroundColor = UIColor.black
+//        vistaCarouselGrande.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+//
+//
+//        let ancho = view.bounds.width
+//        let largo = view.bounds.height
+//
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageBigCarouselTapped(tapGestureRecognizer:)))
+//        vistaCarouselGrande.isUserInteractionEnabled = true
+//        vistaCarouselGrande.addGestureRecognizer(tapGestureRecognizer)
+//
+//
+//        contenedorCarouselGrande.frame.size = CGSize(width: ancho, height: ancho * (0.8))
+//        contenedorCarouselGrande.contentSize = CGSize(width: ancho * CGFloat(propiedad.fotos.count), height: view.bounds.width * (0.8))
+//        contenedorCarouselGrande.frame.origin.x = 0
+//        contenedorCarouselGrande.frame.origin.y = largo/4
+//        contenedorCarouselGrande.isPagingEnabled = true
+//        contenedorCarouselGrande.showsHorizontalScrollIndicator = false
+//
+//        for (index, url) in propiedad.fotos.enumerated() {
+//
+//            let marco = UIImageView(image: Utilities.traerImagen(urlImagen: url))
+//
+//            marco.frame.origin.x = ancho * CGFloat(index)
+//            marco.frame.origin.y = 0
+//            marco.frame.size = CGSize(width: ancho, height: view.bounds.width * (0.8))
+//            contenedorCarouselGrande.addSubview(marco)
+//
+//        }
+//
+//        vistaCarouselGrande.addSubview(contenedorCarouselGrande)
+//
+//        view.addSubview(vistaCarouselGrande)
+//
+//        //detiene el indicador de carga
+//        if instanciaDescripcionController != nil {
+//            instanciaDescripcionController.detenerCarga()
+//        }
+//
+//    }
+//
+//    //oculta el carousel grande
+//    @objc func imageBigCarouselTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+//        contenedorCarouselGrande.removeFromSuperview()
+//        vistaCarouselGrande.removeFromSuperview()
+//    }
     
     
-    //accion al presionar en el carousel de fotos pequeño
-    @objc func carouselTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        
-        vistaCarouselGrande.frame = CGRect(x: 0 ,y: 0 ,width: self.view.frame.width,height: self.view.frame.height)
-        vistaCarouselGrande.backgroundColor = UIColor.black
-        vistaCarouselGrande.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        
-        
-        let ancho = view.bounds.width
-        let largo = view.bounds.height
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageBigCarouselTapped(tapGestureRecognizer:)))
-        vistaCarouselGrande.isUserInteractionEnabled = true
-        vistaCarouselGrande.addGestureRecognizer(tapGestureRecognizer)
-        
-        
-        contenedorCarouselGrande.frame.size = CGSize(width: view.bounds.width, height: view.bounds.width * (0.8))
-        contenedorCarouselGrande.contentSize = CGSize(width: ancho * CGFloat(propiedad.fotos.count), height: view.bounds.width * (0.8))
-        contenedorCarouselGrande.frame.origin.x = 0
-        contenedorCarouselGrande.frame.origin.y = largo/4
-        contenedorCarouselGrande.isPagingEnabled = true
-        contenedorCarouselGrande.showsHorizontalScrollIndicator = false
-        
-        
-        for (index, url) in propiedad.fotos.enumerated() {
-            
-            let marco = UIImageView(image: Utilities.traerImagen(urlImagen: url))
-            
-            marco.frame.origin.x = ancho * CGFloat(index)
-            marco.frame.origin.y = 0
-            marco.frame.size = CGSize(width: ancho, height: view.bounds.width * (0.8))
-            contenedorCarouselGrande.addSubview(marco)
-            
-        }
-        
-        vistaCarouselGrande.addSubview(contenedorCarouselGrande)
-        
-        view.addSubview(vistaCarouselGrande)
-        
-    }
-    
-    //oculta el carousel grande
-    @objc func imageBigCarouselTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        contenedorCarouselGrande.removeFromSuperview()
-        vistaCarouselGrande.removeFromSuperview()
-    }
+//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//
+//        nuevoSlide = Double(contenedorCarousel.contentOffset.x)
+//
+//        if nuevoSlide > slideAnterior && photoIndex >= 0 && photoIndex <= propiedad.fotos.count{
+//            print("Entro a sumar")
+//            photoIndex += 1
+//            let marco = UIImageView(image: Utilities.traerImagen(urlImagen: propiedad.fotos[0]))
+//
+//            marco.frame.origin.x = contenedorCarousel.bounds.width * CGFloat(photoIndex)
+//            marco.frame.origin.y = 0
+//            marco.frame.size = CGSize(width: contenedorCarousel.bounds.width, height: contenedorCarousel.bounds.height)
+//            marco.tag = photoIndex
+//            if  contenedorCarousel.viewWithTag(photoIndex+1) == nil{
+//                contenedorCarousel.addSubview(marco)
+//            }
+//
+//            slideAnterior = Double(contenedorCarousel.contentOffset.x)
+//        }
+//        else if photoIndex > 0{
+//            print("Entro a restar")
+//            photoIndex -= 1
+//            //slideAnterior = Double(contenedorCarousel.contentOffset.x)
+//        }
+//        print(slideAnterior)
+//        print(nuevoSlide)
+//        print(photoIndex)
+//    }
     
     
     //***************************funciones favoritos**********************************
     @IBAction func favoritos(_ sender: Any) {
+        
+        //inicia el indicador de carga
+        if instanciaDescripcionController != nil {
+            instanciaDescripcionController.inciarCarga()
+        }
         
         if let userId = UserDefaults.standard.object(forKey: "userId") as? Int{
             
@@ -346,7 +408,9 @@ class InfoController: UIViewController {
                     }
                     
                     OperationQueue.main.addOperation({
-                        cambioFavoritos = true
+                        if instanciaFavoritosController != nil {
+                            instanciaFavoritosController.mostrarFavoritos(userId: UserDefaults.standard.integer(forKey: "userId"))
+                        }
                         self.revisarFavoritos()
                     })
                     
@@ -359,7 +423,6 @@ class InfoController: UIViewController {
         }
         
     }
-    
     
     
     func revisarFavoritos(){
@@ -410,6 +473,7 @@ class InfoController: UIViewController {
                             favoritos = jsonFavoritos
                         }
                         
+                        
                     } catch {
                         print("El error es: ")
                         print(error)
@@ -423,6 +487,10 @@ class InfoController: UIViewController {
                                 break
                             }
                         }
+                        //detiene el indicador de carga
+                        if instanciaDescripcionController != nil {
+                            instanciaDescripcionController.detenerCarga()
+                        }
                     })
                     
                 }
@@ -435,6 +503,12 @@ class InfoController: UIViewController {
     @IBAction func metodoCarrito(_ sender: Any) {
         
         if let userId = UserDefaults.standard.object(forKey: "userId") as? Int{
+            
+            //inicia el indicador de carga
+            if instanciaDescripcionController != nil {
+                instanciaDescripcionController.inciarCarga()
+            }
+            
             if agregarCarrito {
                 agregarAlCarrito(userId: userId)
             }
@@ -496,7 +570,9 @@ class InfoController: UIViewController {
                 }
                 
                 OperationQueue.main.addOperation({
-                    cambioCarritos = true
+                    if instanciaCarritoController != nil {
+                        instanciaCarritoController.mostrarCarritos(userId: UserDefaults.standard.integer(forKey: "userId"))
+                    }
                     self.revisarCarritos()
                 })
                 
@@ -537,7 +613,9 @@ class InfoController: UIViewController {
                 }
                 
                 OperationQueue.main.addOperation({
-                    cambioCarritos = true
+                    if instanciaCarritoController != nil {
+                        instanciaCarritoController.mostrarCarritos(userId: UserDefaults.standard.integer(forKey: "userId"))
+                    }
                     self.revisarCarritos()
                 })
                 
@@ -601,6 +679,10 @@ class InfoController: UIViewController {
                                 self.agregarCarrito = false
                                 break
                             }
+                        }
+                        //detiene el indicador de carga
+                        if instanciaDescripcionController != nil {
+                            instanciaDescripcionController.detenerCarga()
                         }
                     })
                     

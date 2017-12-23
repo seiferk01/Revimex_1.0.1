@@ -481,35 +481,39 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
                     if (json["error"] as! String) != "No hay resultados" {
                         for element in json["features"] as! NSArray{
 
-                            let propiedad = element as! NSDictionary
-                            let gemoetry = propiedad["geometry"] as! NSDictionary
-                            let coordinates = gemoetry["coordinates"] as! NSArray
-                            
-                            if !(coordinates[0] is NSNull) && !(coordinates[1] is NSNull){
-                                
-                                let lat = Double(coordinates[1] as! String)!
-                                let lng = Double(coordinates[0] as! String)!
-                                
-                                let properties = propiedad["properties"] as! NSDictionary
-                                
-                                var direccion = ""
-                                var precio = ""
-                                var idOferta = 0
-                                
-                                if properties["calle"] != nil{
-                                    direccion = direccion + (properties["calle"] as! String)
+                            if let propiedad = element as? NSDictionary {
+                                if let gemoetry = propiedad["geometry"] as? NSDictionary{
+                                    let coordinates = gemoetry["coordinates"] as! NSArray
+                                    
+                                    if let latitud = coordinates[1] as? String, let longitud = coordinates[0] as? String{
+                                        
+                                        let lat = Double(latitud)
+                                        let lng = Double(longitud)
+                                        
+                                        if let properties = propiedad["properties"] as? NSDictionary{
+                                        
+                                            var direccion = ""
+                                            var precio = ""
+                                            var idOferta = 0
+                                            
+                                            if let calle = properties["calle"] as? String{
+                                                direccion = direccion + (calle)
+                                            }
+                                            if let estado = properties["estado"] as? String {
+                                                direccion = direccion + (estado)
+                                            }
+                                            if let prec = properties["precio"] as? String {
+                                                precio = "Precio: $" + (prec)
+                                            }
+                                            if let id = properties["ai"] as? Int{
+                                                idOferta = (id)
+                                            }
+                                            
+                                            self.agregarMarcadorPropiedad(latitud:lat!, longitud: lng!,direccion: direccion,precio: precio,idOferta: idOferta)
+                                            
+                                        }
+                                    }
                                 }
-                                if properties["estado"] != nil{
-                                    direccion = direccion + (properties["estado"] as! String)
-                                }
-                                if properties["precio"] != nil{
-                                    precio = "Precio: $" + (properties["precio"] as! String)
-                                }
-                                if properties["ai"] != nil{
-                                    idOferta = (properties["ai"] as! Int)
-                                }
-                                
-                                self.agregarMarcadorPropiedad(latitud:lat, longitud: lng,direccion: direccion,precio: precio,idOferta: idOferta)
                             }
                             
                         }

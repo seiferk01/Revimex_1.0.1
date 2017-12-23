@@ -16,6 +16,8 @@ import Material
     userId -> almacena el id de usuario
 */
 
+//
+
 //genera un borde inferior en un campo de texto
 extension UITextField {
     func borderBottom(color: UIColor,borderSize: CGFloat){
@@ -200,12 +202,6 @@ var imagenCuentaBtn = UIButton()
 //indica el tipo de estilo para la barra de navegacion(LoginController,StockCotroller,FavoritosController,InfoUserController)
 var navBarStyleCase = 0
 
-//bandera para refresacar la vista de favoritos (InfoController,FavoritosController)
-var cambioFavoritos = false
-
-//bandera para refresacar la vista de carrito (InfoController,CarritoController)
-var cambioCarritos = false
-
 //indicador de linea de negocio (StockController,LineasInfoController)
 var lineaSeleccionada = 0
 
@@ -215,6 +211,14 @@ var propiedad: Details = Details(Id: "",calle: "",colonia: "",construccion: "",c
 //variable para obtener la imagen de fondo de la descripcion
 var descriptionImageBackground = UIImage()
 
+//instancia para la actualizacion de la vista de favoritos
+var instanciaFavoritosController: FavoritesController!
+
+//instancia para la actualizacion de la vista de carritos
+var instanciaCarritoController: CarritoController!
+
+//instancia para mostrar/ocultar indicador de carga en descripcion
+var instanciaDescripcionController: DescriptionViewController!
 
 
 class Utilities: NSObject {
