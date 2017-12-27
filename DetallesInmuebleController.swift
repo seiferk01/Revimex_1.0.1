@@ -174,7 +174,7 @@ class DetallesInmuebleController: FormViewController,FormValidate{
         rows![entorno.tag!] = Array(self.entorno.value!);
         return self.rows;
     }
-
+    
     func esValido() -> Bool {
         var valido = true;
         validar();
@@ -187,6 +187,7 @@ class DetallesInmuebleController: FormViewController,FormValidate{
                     let row = row as! TextAreaRow;
                     row.placeholder = "Descripción \n\n Este campo es Obligatorio...";
                 }
+                self.present(Utilities.showAlertSimple("¡Aviso!","Los campos marcados en rojo son obligatorios") , animated: true, completion: nil);
                 valido = false
             }else{
                 

@@ -120,12 +120,15 @@ class AddressComponent{
         route = "route",
         sublocality_level_1 = "sublocality_level_1",
         locality = "locality",
-        administrative_area_level_2 = "administrative_area_level_2",
         administrative_area_level_1 = "administrative_area_level_1",
+        administrative_area_level_2 = "administrative_area_level_2",
+        administrative_area_level_3 = "administrative_area_level_3",
+        administrative_area_level_4 = "administrative_area_level_4",
+        administrative_area_level_5 = "administrative_area_level_5",
         country = "country",
         postal_code = "postal_code",
-        administrative_area_level_3 = "administrative_area_level_3";
-    }
+        colloquial_area = "coloquial_area"
+    };
     
     public var longName:String!;
     public var shortName:String!;

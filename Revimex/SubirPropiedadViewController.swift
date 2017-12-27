@@ -46,7 +46,8 @@ class SubirPropiedadViewController: UIViewController{
     var detallesInmueble: DetallesInmuebleController!;
     //var ubicacionInmueble: UbicacionInmuebleController!;
     var fotosInmueble: FotosInmuebleController!;
-    var confirmarInmueble: MapaUbicacionInmueble!;
+    var mapaUbicacionInmueble: MapaUbicacionInmueble!;
+    var ubicacionExtraInmueble: UbicacionExtraInmuebleController!;
     
     var views:[UIViewController?]!;
     
@@ -67,15 +68,14 @@ class SubirPropiedadViewController: UIViewController{
         
         detallesInmueble = storyboard.instantiateViewController(withIdentifier: "DetallesInmueble") as! DetallesInmuebleController ;
         //ubicacionInmueble = storyboard.instantiateViewController(withIdentifier: "UbicacionInmueble") as! UbicacionInmuebleController;
-        confirmarInmueble = storyboard.instantiateViewController(withIdentifier: "ConfirmarUbicacionInmueble") as! MapaUbicacionInmueble;
+        mapaUbicacionInmueble = storyboard.instantiateViewController(withIdentifier: "ConfirmarUbicacionInmueble") as! MapaUbicacionInmueble;
+        ubicacionExtraInmueble = storyboard.instantiateViewController(withIdentifier: "UbicacionExtraInmueble") as! UbicacionExtraInmuebleController;
         fotosInmueble = storyboard.instantiateViewController(withIdentifier: "FotosInmueble") as! FotosInmuebleController;
         
         fotosInmueble.sizeMax = cnVwFormularios.frame;
         //ubicacionInmueble.subirPropiedad = self;
         
-        views = [detallesInmueble,confirmarInmueble,fotosInmueble];
-        
-        
+        views = [detallesInmueble,mapaUbicacionInmueble,ubicacionExtraInmueble,fotosInmueble];
         
         btnSig = Utilities.genearSombras(btnSig);
         btnSig.tag = 2;
@@ -136,12 +136,14 @@ class SubirPropiedadViewController: UIViewController{
     
     @IBAction func actSig(_ sender: UIButton) {
         if(validar()){
+            
+            if(actualViewController is MapaUbicacionInmueble!){
+                ubicacionExtraInmueble.rows = ubicacionExtraInmueble.obtValores();
+            }
             if(cont<4){
                 cont = cont + 1;
                 actualizar();
             }
-        }else{
-            present(Utilities.showAlertSimple("Aviso", "Por favor llene los campos en rojo"), animated: true);
         }
     }
     

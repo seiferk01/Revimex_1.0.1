@@ -739,7 +739,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BMX-uE-B0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7919" y="1303"/>
+            <point key="canvasLocation" x="7937" y="1722"/>
         </scene>
         <!--Mapa Ubicacion Inmueble-->
         <scene sceneID="I9w-oA-FaZ">
@@ -859,7 +859,160 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RhM-C7-Yoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8613.6000000000004" y="1302.9985007496252"/>
+            <point key="canvasLocation" x="7938" y="1303"/>
+        </scene>
+        <!--Ubicacion Extra Inmueble Controller-->
+        <scene sceneID="M4s-e6-AJy">
+            <objects>
+                <viewController storyboardIdentifier="UbicacionExtraInmueble" id="Hl1-s4-3Cz" customClass="UbicacionExtraInmuebleController" customModule="Revimex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fyx-vj-Oqw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xki-sT-rVg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkD-ak-wPf" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="15" y="102" width="344" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="s8z-QN-l8Y"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgz-Vl-fM5" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="15" y="164" width="344" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="dKe-Ul-kOy"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoi-nE-Eb1" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="15" y="226" width="344" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="0oH-Ec-6er"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8S-Sy-hkj" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="15" y="288" width="344" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="R4Y-VM-55a"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XSQ-Uz-YOA" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="15" y="350" width="344" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="StX-wg-N6L"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npw-NK-RxS" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="15" y="412" width="344" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="vmF-Ny-RbT"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXx-ON-zf3" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="15" y="474" width="344" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="jFg-9B-gCK"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RN8-qC-d6n" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="15" y="536" width="344" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Ty9-p8-MiT"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRd-RE-VHk" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="15" y="598" width="344" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Jxk-IT-qC4"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lod-G5-neA" customClass="TextField" customModule="Material">
+                                        <rect key="frame" x="0.0" y="660" width="374" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="6Fx-Kr-fq8"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verifique los datos de su propiedad: " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qL-eo-wEW">
+                                        <rect key="frame" x="15" y="10" width="344" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1qL-eo-wEW" secondAttribute="trailing" constant="15" id="0vI-BU-v34"/>
+                                    <constraint firstItem="RN8-qC-d6n" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" constant="15" id="101-QJ-u7Y"/>
+                                    <constraint firstItem="npw-NK-RxS" firstAttribute="top" secondItem="XSQ-Uz-YOA" secondAttribute="bottom" constant="32" id="36X-YY-vGv"/>
+                                    <constraint firstItem="Fgz-Vl-fM5" firstAttribute="top" secondItem="nkD-ak-wPf" secondAttribute="bottom" constant="32" id="3bt-kA-DCE"/>
+                                    <constraint firstItem="1qL-eo-wEW" firstAttribute="top" secondItem="xki-sT-rVg" secondAttribute="top" constant="10" id="4ln-bS-eWL"/>
+                                    <constraint firstItem="YXx-ON-zf3" firstAttribute="top" secondItem="npw-NK-RxS" secondAttribute="bottom" constant="32" id="50v-rb-HW8"/>
+                                    <constraint firstItem="lod-G5-neA" firstAttribute="top" secondItem="WRd-RE-VHk" secondAttribute="bottom" constant="32" id="9NV-Em-YGs"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fgz-Vl-fM5" secondAttribute="trailing" constant="15" id="9V8-lB-tgD"/>
+                                    <constraint firstItem="m8S-Sy-hkj" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" constant="15" id="A5C-dW-8nb"/>
+                                    <constraint firstItem="XSQ-Uz-YOA" firstAttribute="top" secondItem="m8S-Sy-hkj" secondAttribute="bottom" constant="32" id="ANT-VP-z9b"/>
+                                    <constraint firstItem="nkD-ak-wPf" firstAttribute="centerX" secondItem="xki-sT-rVg" secondAttribute="centerX" id="AuM-hj-RJE"/>
+                                    <constraint firstItem="Fgz-Vl-fM5" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" constant="15" id="C0l-de-s62"/>
+                                    <constraint firstItem="yoi-nE-Eb1" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" constant="15" id="EMw-US-iTf"/>
+                                    <constraint firstItem="WRd-RE-VHk" firstAttribute="top" secondItem="RN8-qC-d6n" secondAttribute="bottom" constant="32" id="M7V-Dy-0Dp"/>
+                                    <constraint firstItem="YXx-ON-zf3" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" constant="15" id="MFY-ar-t1H"/>
+                                    <constraint firstItem="RN8-qC-d6n" firstAttribute="top" secondItem="YXx-ON-zf3" secondAttribute="bottom" constant="32" id="MZa-yN-6gA"/>
+                                    <constraint firstAttribute="trailing" secondItem="yoi-nE-Eb1" secondAttribute="trailing" constant="15" id="Q57-Y9-foP"/>
+                                    <constraint firstItem="XSQ-Uz-YOA" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" constant="15" id="QGp-PW-71O"/>
+                                    <constraint firstAttribute="trailing" secondItem="nkD-ak-wPf" secondAttribute="trailing" constant="15" id="S8R-KG-SnV"/>
+                                    <constraint firstAttribute="trailing" secondItem="npw-NK-RxS" secondAttribute="trailing" constant="15" id="SPf-ra-4TQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="lod-G5-neA" secondAttribute="trailing" id="Td9-oC-V02"/>
+                                    <constraint firstAttribute="trailing" secondItem="RN8-qC-d6n" secondAttribute="trailing" constant="15" id="Yyt-bE-AnR"/>
+                                    <constraint firstItem="nkD-ak-wPf" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" constant="15" id="aNf-Um-Mpu"/>
+                                    <constraint firstItem="npw-NK-RxS" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" constant="15" id="apY-cJ-AFB"/>
+                                    <constraint firstItem="WRd-RE-VHk" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" constant="15" id="bOL-Hw-w01"/>
+                                    <constraint firstItem="1qL-eo-wEW" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" constant="15" id="blM-aR-iVT"/>
+                                    <constraint firstItem="m8S-Sy-hkj" firstAttribute="top" secondItem="yoi-nE-Eb1" secondAttribute="bottom" constant="32" id="d71-Sa-grz"/>
+                                    <constraint firstItem="nkD-ak-wPf" firstAttribute="top" secondItem="1qL-eo-wEW" secondAttribute="bottom" constant="32" id="hsj-Tc-MlC"/>
+                                    <constraint firstAttribute="bottom" secondItem="lod-G5-neA" secondAttribute="bottom" constant="240" id="iRi-km-eBu"/>
+                                    <constraint firstItem="lod-G5-neA" firstAttribute="leading" secondItem="xki-sT-rVg" secondAttribute="leading" id="j1d-Ru-uxU"/>
+                                    <constraint firstAttribute="trailing" secondItem="XSQ-Uz-YOA" secondAttribute="trailing" constant="15" id="oVX-Ow-jZ9"/>
+                                    <constraint firstAttribute="trailing" secondItem="WRd-RE-VHk" secondAttribute="trailing" constant="15" id="qQf-X1-V25"/>
+                                    <constraint firstItem="yoi-nE-Eb1" firstAttribute="top" secondItem="Fgz-Vl-fM5" secondAttribute="bottom" constant="32" id="sDi-Il-lSn"/>
+                                    <constraint firstAttribute="trailing" secondItem="YXx-ON-zf3" secondAttribute="trailing" constant="15" id="v2c-ee-fsQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="m8S-Sy-hkj" secondAttribute="trailing" constant="15" id="zBo-7X-kL1"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wTK-7V-zxC" firstAttribute="bottom" secondItem="xki-sT-rVg" secondAttribute="bottom" id="5FV-c9-S9J"/>
+                            <constraint firstItem="xki-sT-rVg" firstAttribute="top" secondItem="wTK-7V-zxC" secondAttribute="top" id="9cb-Sr-npS"/>
+                            <constraint firstItem="wTK-7V-zxC" firstAttribute="trailing" secondItem="xki-sT-rVg" secondAttribute="trailing" id="Rv6-VL-4I6"/>
+                            <constraint firstItem="xki-sT-rVg" firstAttribute="leading" secondItem="wTK-7V-zxC" secondAttribute="leading" id="hTg-Qy-JdN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wTK-7V-zxC"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="375"/>
+                    <connections>
+                        <outlet property="txFlCalle" destination="XSQ-Uz-YOA" id="vxl-L1-mww"/>
+                        <outlet property="txFlCodigoPostal" destination="nkD-ak-wPf" id="jW8-Gq-sAF"/>
+                        <outlet property="txFlColonia" destination="m8S-Sy-hkj" id="UfA-1h-sQl"/>
+                        <outlet property="txFlEstado" destination="Fgz-Vl-fM5" id="66N-eb-14r"/>
+                        <outlet property="txFlLote" destination="WRd-RE-VHk" id="b35-wk-LwX"/>
+                        <outlet property="txFlManzana" destination="RN8-qC-d6n" id="JPa-5n-vwc"/>
+                        <outlet property="txFlMunicipio" destination="yoi-nE-Eb1" id="WNc-us-5g2"/>
+                        <outlet property="txFlNumeroExt" destination="npw-NK-RxS" id="NZ5-Vm-HNJ"/>
+                        <outlet property="txFlNumeroInt" destination="YXx-ON-zf3" id="6Yq-bo-OEQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5RP-YR-zbD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8631" y="1303"/>
         </scene>
         <!--Fotos Inmueble Controller-->
         <scene sceneID="vB2-Mh-IZG">
@@ -940,7 +1093,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kfS-01-q8O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9303" y="1303"/>
+            <point key="canvasLocation" x="9308" y="1303"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5R4-7U-DuS">

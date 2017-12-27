@@ -210,12 +210,24 @@ class MapaUbicacionInmueble: UIViewController,MGLMapViewDelegate,UIGestureRecogn
     }
     
     func obtValores() -> [String : Any?]! {
-        return [:];
+        
+        rows!["codigoPostal"] = self.txFlCodigoPostal.getActualText()!;
+        rows!["estado"] = self.txFlEstado.getActualText()!;
+        rows!["municipio"] = self.txFlMunicipio.getActualText()!;
+        rows!["colonia"] = self.txFlColonia.getActualText()!;
+        rows!["calle"] = self.txFlCalle.getActualText()!;
+        rows!["numeroExterior"] = self.txFlNumero.getActualText()!;
+        
+        return rows;
     }
     
     func esValido() -> Bool {
         if(miPropiedad != nil){
-        print(miPropiedad.coordinate);
+            return true;
+        }else{
+            let alert = UIAlertController(title: "¡Aviso!", message: "Porfavor marque la ubicación de su propiedad en el mapa, para esto realice una pulsación larga", preferredStyle: UIAlertControllerStyle.alert);
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil));
+            self.present(alert, animated: true, completion: nil);
         }
         return false;
     }
