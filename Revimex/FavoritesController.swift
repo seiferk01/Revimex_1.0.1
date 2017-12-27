@@ -35,7 +35,8 @@ class FavoritesController: UIViewController {
         misFavoritos.setTitle("Mis Favoritos", for: .normal)
         misFavoritos.setTitleColor(UIColor.white, for: .normal)
         misFavoritos.layer.borderWidth = 1
-        misFavoritos.layer.borderColor = UIColor.white.cgColor
+        misFavoritos.layer.borderColor = azul?.cgColor
+        misFavoritos.setTitleColor(azul, for: .normal)
         misFavoritos.addGestureRecognizer(tapGestureRecognizerMisFavoritos)
         
         let tapGestureRecognizerSugerencias = UITapGestureRecognizer(target: self, action: #selector(sugerenciasTapped(tapGestureRecognizer:)))
@@ -144,6 +145,23 @@ class FavoritesController: UIViewController {
                 }
                 
                 OperationQueue.main.addOperation({
+                    if self.arrayFavoitos.count > 0 {
+                        if let labelSinFavoritos = self.view.viewWithTag(101){
+                            labelSinFavoritos.removeFromSuperview()
+                        }
+                    }
+                    else{
+                        let sinFavoritos = UILabel()
+                        sinFavoritos.text = "Aun no tienes favoritos"
+                        sinFavoritos.textColor = UIColor.white
+                        sinFavoritos.textAlignment = NSTextAlignment.center
+                        sinFavoritos.font = UIFont.boldSystemFont(ofSize: 20.0)
+                        sinFavoritos.frame = CGRect(x:0,y:0,width:self.anchoPantalla,height:self.largoPantalla * (0.8))
+                        sinFavoritos.center = self.view.bounds.center
+                        sinFavoritos.tag = 101
+                        self.view.addSubview(sinFavoritos)
+                    }
+                    
                     self.mostrarMisFavoritos()
                     activityIndicator.stopAnimating()
                     background.removeFromSuperview()
@@ -259,14 +277,20 @@ class FavoritesController: UIViewController {
         let contenedorInfo = UIView()
         contenedorInfo.frame = CGRect(x: anchoPantalla * (0.1), y: (largoPantalla * (0.08)), width: anchoPantalla * (0.8), height: largoPantalla * (0.8))
         
-        let image = UIImage(named: "favoritosSinLogin.png")
-        let notLoggedMessage = UIImageView(image: image)
-        notLoggedMessage.frame = CGRect(x: 0, y: largoPantalla * (0.07), width: contenedorInfo.bounds.width, height: contenedorInfo.bounds.height)
+        let notLoggedMessage = UILabel()
+        notLoggedMessage.numberOfLines = 2
+        notLoggedMessage.text = "Inicia sesion en Revimex \n para mostrar tus favoritos"
+        notLoggedMessage.textColor = UIColor.white
+        notLoggedMessage.textAlignment = NSTextAlignment.center
+        notLoggedMessage.font = UIFont.boldSystemFont(ofSize: 20.0)
+        notLoggedMessage.frame = CGRect(x:0,y:0,width:anchoPantalla,height:largoPantalla * (0.8))
+        notLoggedMessage.center = contenedorInfo.bounds.center
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mostrarLogin(tapGestureRecognizer:)))
         let loginBtn = UIButton()
         loginBtn.frame = CGRect(x: anchoPantalla * (0.15), y: largoPantalla * (0.8), width: anchoPantalla * (0.7), height: largoPantalla * (0.06))
-        loginBtn.backgroundColor = gris
+        loginBtn.layer.borderWidth = 1
+        loginBtn.layer.borderColor = UIColor.white.cgColor
         loginBtn.setTitle("Registrarse", for: .normal)
         loginBtn.addGestureRecognizer(tapGestureRecognizer)
         

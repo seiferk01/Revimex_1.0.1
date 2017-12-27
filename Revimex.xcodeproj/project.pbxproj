@@ -13,7 +13,6 @@
 		110A3DDD1FEB015600C47BBF /* DatosPersonalesCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A3DD61FEB015400C47BBF /* DatosPersonalesCellController.swift */; };
 		110A3DDE1FEB015600C47BBF /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A3DD71FEB015500C47BBF /* FormView.swift */; };
 		110A3DDF1FEB015600C47BBF /* FormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110A3DD81FEB015500C47BBF /* FormView.xib */; };
-		110A3DE01FEB015600C47BBF /* LineasInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110A3DD91FEB015600C47BBF /* LineasInfo.swift */; };
 		1125AA5B1FD5E61F00B26316 /* menu-horizontal-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 1125AA5A1FD5E61F00B26316 /* menu-horizontal-100.png */; };
 		11350F091FE1E6C000DC87EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11350F0B1FE1E6C000DC87EA /* LaunchScreen.storyboard */; };
 		1148A61B1FDF493000D57758 /* FotosInmuebleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148A61A1FDF493000D57758 /* FotosInmuebleController.swift */; };
@@ -98,6 +97,11 @@
 		526DC6571FB68E9F007CD85F /* GooglePlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526DC6511FB67FA3007CD85F /* GooglePlaces.framework */; };
 		526DC6581FB6920B007CD85F /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526DC6501FB67F8F007CD85F /* GoogleMaps.framework */; };
 		528B6EA31FD9D9ED000015F7 /* LineasInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528B6EA21FD9D9ED000015F7 /* LineasInfoController.swift */; };
+		5290B2F51FF2D03C0038B25C /* banBrokerage.png in Resources */ = {isa = PBXBuildFile; fileRef = 5290B2F11FF2D0370038B25C /* banBrokerage.png */; };
+		5290B2F61FF2D03C0038B25C /* banInversionista.png in Resources */ = {isa = PBXBuildFile; fileRef = 5290B2F21FF2D0380038B25C /* banInversionista.png */; };
+		5290B2F71FF2D03C0038B25C /* banClienteFinal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5290B2F31FF2D03A0038B25C /* banClienteFinal.png */; };
+		5290B2F81FF2D03C0038B25C /* banMercadoAbierto.png in Resources */ = {isa = PBXBuildFile; fileRef = 5290B2F41FF2D03A0038B25C /* banMercadoAbierto.png */; };
+		5290B2FA1FF353140038B25C /* thumSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 5290B2F91FF353130038B25C /* thumSlider.png */; };
 		52980A1C1FD7253E00576CD8 /* favoritosSinLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = 52980A1B1FD7253E00576CD8 /* favoritosSinLogin.png */; };
 		529810B21FD61657002723D1 /* InfoUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529810B11FD61656002723D1 /* InfoUserController.swift */; };
 		529810B81FD61EC1002723D1 /* imagenNoEncontrada.png in Resources */ = {isa = PBXBuildFile; fileRef = 529810B71FD61EC0002723D1 /* imagenNoEncontrada.png */; };
@@ -170,7 +174,6 @@
 		110A3DD61FEB015400C47BBF /* DatosPersonalesCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatosPersonalesCellController.swift; sourceTree = "<group>"; };
 		110A3DD71FEB015500C47BBF /* FormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormView.swift; path = CustomViews/FormView.swift; sourceTree = "<group>"; };
 		110A3DD81FEB015500C47BBF /* FormView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormView.xib; path = CustomViews/FormView.xib; sourceTree = "<group>"; };
-		110A3DD91FEB015600C47BBF /* LineasInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineasInfo.swift; sourceTree = "<group>"; };
 		1125AA5A1FD5E61F00B26316 /* menu-horizontal-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-horizontal-100.png"; sourceTree = "<group>"; };
 		11350F0A1FE1E6C000DC87EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1148A61A1FDF493000D57758 /* FotosInmuebleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosInmuebleController.swift; sourceTree = "<group>"; };
@@ -259,6 +262,11 @@
 		526DC6531FB68044007CD85F /* GooglePlacePicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlacePicker.bundle; path = GooglePlacePicker.framework/Versions/A/Resources/GooglePlacePicker.bundle; sourceTree = "<group>"; };
 		526DC6541FB68054007CD85F /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
 		528B6EA21FD9D9ED000015F7 /* LineasInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineasInfoController.swift; sourceTree = "<group>"; };
+		5290B2F11FF2D0370038B25C /* banBrokerage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banBrokerage.png; sourceTree = "<group>"; };
+		5290B2F21FF2D0380038B25C /* banInversionista.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banInversionista.png; sourceTree = "<group>"; };
+		5290B2F31FF2D03A0038B25C /* banClienteFinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banClienteFinal.png; sourceTree = "<group>"; };
+		5290B2F41FF2D03A0038B25C /* banMercadoAbierto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banMercadoAbierto.png; sourceTree = "<group>"; };
+		5290B2F91FF353130038B25C /* thumSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumSlider.png; sourceTree = "<group>"; };
 		52980A1B1FD7253E00576CD8 /* favoritosSinLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritosSinLogin.png; sourceTree = "<group>"; };
 		529810B11FD61656002723D1 /* InfoUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoUserController.swift; sourceTree = "<group>"; };
 		529810B71FD61EC0002723D1 /* imagenNoEncontrada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagenNoEncontrada.png; sourceTree = "<group>"; };
@@ -402,54 +410,59 @@
 		526DC5F41FB2396B007CD85F /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				52D0CF441FE99B1E009F921C /* facebook.png */,
-				52BD11A21FE98E8A00B0747E /* google.png */,
-				52F465FE1FE49C0F0075C6BD /* fondo.png */,
+				5290B2F11FF2D0370038B25C /* banBrokerage.png */,
+				5290B2F31FF2D03A0038B25C /* banClienteFinal.png */,
+				5290B2F21FF2D0380038B25C /* banInversionista.png */,
+				5290B2F41FF2D03A0038B25C /* banMercadoAbierto.png */,
 				529F014D1FE219A600BEC068 /* baños.png */,
+				11965E8F1FDB08AD009681F2 /* brokerage.jpeg */,
+				526DC61E1FB4F43E007CD85F /* buscar.png */,
+				5221BE141FBE103800D0F89C /* buscarFiltros.png */,
+				526DC61A1FB4BF44007CD85F /* carrito.png */,
 				529F01521FE21DEF00BEC068 /* carritoDisponible.png */,
 				529F014B1FE219A300BEC068 /* carritoSeleccionado.png */,
-				529F014C1FE219A500BEC068 /* habitaciones.png */,
-				529858AE1FDF151600685F5D /* navBarBackground.png */,
-				11965E8F1FDB08AD009681F2 /* brokerage.jpeg */,
+				526DC5EB1FB21D9E007CD85F /* centroComercial.png */,
 				11965E901FDB08AD009681F2 /* clienteFinal.jpg */,
-				11965E941FDB08AE009681F2 /* inversionista.jpg */,
-				11965E921FDB08AE009681F2 /* menu-vertical-100.png */,
-				11965E911FDB08AD009681F2 /* mercadoAbierto.jpeg */,
-				11965E931FDB08AE009681F2 /* revimexBienvenida.jpg */,
-				117DC6BF1FD738460009F6AB /* pencil.png */,
-				117DC6BD1FD7346D0009F6AB /* menu-vertical-24.png */,
-				529810B71FD61EC0002723D1 /* imagenNoEncontrada.png */,
-				1125AA5A1FD5E61F00B26316 /* menu-horizontal-100.png */,
+				521E56231FC669B500D38947 /* compartir.ico */,
+				5221BE031FBB784700D0F89C /* convenience_store.png */,
+				5221BE1C1FBF8B8A00D0F89C /* cuenta.png */,
+				521E56251FC7394E00D38947 /* entrarConFcebook.png */,
+				526DC5E71FB21D9D007CD85F /* escuelas.png */,
+				52D0CF441FE99B1E009F921C /* facebook.png */,
+				521E56211FC6695200D38947 /* favorites.png */,
+				526DC6161FB4BE5B007CD85F /* favoritos.png */,
 				5231C1071FCD0FA200ED4C54 /* favoritoSeleccionado.png */,
 				52980A1B1FD7253E00576CD8 /* favoritosSinLogin.png */,
-				5221BE141FBE103800D0F89C /* buscarFiltros.png */,
-				5221BE1C1FBF8B8A00D0F89C /* cuenta.png */,
-				521E56231FC669B500D38947 /* compartir.ico */,
-				521E56211FC6695200D38947 /* favorites.png */,
 				5221BE121FBCC02800D0F89C /* filterButton.png */,
-				521E56251FC7394E00D38947 /* entrarConFcebook.png */,
-				5221BE0E1FBBD30300D0F89C /* info.png */,
-				5221BE0C1FBB7DBA00D0F89C /* houseMarker.png */,
+				52F465FE1FE49C0F0075C6BD /* fondo.png */,
+				52BD11A21FE98E8A00B0747E /* google.png */,
+				529F014C1FE219A500BEC068 /* habitaciones.png */,
 				5221BDFE1FBB784300D0F89C /* hospital.png */,
-				5221BE001FBB784500D0F89C /* shopping_mall.png */,
-				5221BDFF1FBB784400D0F89C /* park.png */,
-				5221BE011FBB784500D0F89C /* restaurant.png */,
-				5221BE021FBB784600D0F89C /* school.png */,
-				5221BE031FBB784700D0F89C /* convenience_store.png */,
-				526DC5EB1FB21D9E007CD85F /* centroComercial.png */,
-				526DC61E1FB4F43E007CD85F /* buscar.png */,
-				526DC61A1FB4BF44007CD85F /* carrito.png */,
-				526DC6161FB4BE5B007CD85F /* favoritos.png */,
-				52B734F61FDB3D8E0028F2F7 /* lineas.png */,
-				526DC61C1FB4C129007CD85F /* propiedades.png */,
-				526DC5FD1FB25553007CD85F /* principalMarker.png */,
-				526DC5E71FB21D9D007CD85F /* escuelas.png */,
 				526DC5E81FB21D9D007CD85F /* hospitales.png */,
+				5221BE0C1FBB7DBA00D0F89C /* houseMarker.png */,
+				529810B71FD61EC0002723D1 /* imagenNoEncontrada.png */,
+				5221BE0E1FBBD30300D0F89C /* info.png */,
+				11965E941FDB08AE009681F2 /* inversionista.jpg */,
+				52B734F61FDB3D8E0028F2F7 /* lineas.png */,
+				1125AA5A1FD5E61F00B26316 /* menu-horizontal-100.png */,
+				117DC6BD1FD7346D0009F6AB /* menu-vertical-24.png */,
+				11965E921FDB08AE009681F2 /* menu-vertical-100.png */,
+				11965E911FDB08AD009681F2 /* mercadoAbierto.jpeg */,
+				529858AE1FDF151600685F5D /* navBarBackground.png */,
+				5221BDFF1FBB784400D0F89C /* park.png */,
 				526DC5E61FB21D9D007CD85F /* parques.png */,
+				117DC6BF1FD738460009F6AB /* pencil.png */,
+				526DC5FD1FB25553007CD85F /* principalMarker.png */,
+				526DC61C1FB4C129007CD85F /* propiedades.png */,
+				5221BE011FBB784500D0F89C /* restaurant.png */,
 				526DC5EA1FB21D9E007CD85F /* restaurantes.png */,
-				526DC5E91FB21D9E007CD85F /* Tiendas.png */,
 				526DC5E41FB157AE007CD85F /* revimex.png */,
+				11965E931FDB08AE009681F2 /* revimexBienvenida.jpg */,
+				5221BE021FBB784600D0F89C /* school.png */,
+				5221BE001FBB784500D0F89C /* shopping_mall.png */,
 				52A4C02F1FB0E713003CAF69 /* SplashScreen.png */,
+				5290B2F91FF353130038B25C /* thumSlider.png */,
+				526DC5E91FB21D9E007CD85F /* Tiendas.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -535,7 +548,6 @@
 				1148A61A1FDF493000D57758 /* FotosInmuebleController.swift */,
 				529858B01FDF3B3900685F5D /* InfoController.swift */,
 				529810B11FD61656002723D1 /* InfoUserController.swift */,
-				110A3DD91FEB015600C47BBF /* LineasInfo.swift */,
 				528B6EA21FD9D9ED000015F7 /* LineasInfoController.swift */,
 				11DFB5041FE2FFA90054EB0B /* LineasNegociosController.swift */,
 				5221BE181FBE8A7200D0F89C /* LogInController.swift */,
@@ -731,6 +743,7 @@
 				5231C1081FCD0FA500ED4C54 /* favoritoSeleccionado.png in Resources */,
 				11DFB5141FE321250054EB0B /* UserInfoCell.xib in Resources */,
 				5221BE041FBB784700D0F89C /* hospital.png in Resources */,
+				5290B2F71FF2D03C0038B25C /* banClienteFinal.png in Resources */,
 				11965E9A1FDB08AE009681F2 /* inversionista.jpg in Resources */,
 				5221BE081FBB784700D0F89C /* school.png in Resources */,
 				529858AF1FDF151700685F5D /* navBarBackground.png in Resources */,
@@ -738,6 +751,7 @@
 				526DC5F11FB21D9F007CD85F /* restaurantes.png in Resources */,
 				1125AA5B1FD5E61F00B26316 /* menu-horizontal-100.png in Resources */,
 				52B720101FA785F500F447DA /* Main.storyboard in Resources */,
+				5290B2F81FF2D03C0038B25C /* banMercadoAbierto.png in Resources */,
 				5221BE091FBB784700D0F89C /* convenience_store.png in Resources */,
 				5221BE071FBB784700D0F89C /* restaurant.png in Resources */,
 				5221BE061FBB784700D0F89C /* shopping_mall.png in Resources */,
@@ -752,7 +766,10 @@
 				521E56241FC669B600D38947 /* compartir.ico in Resources */,
 				529F01531FE21DF000BEC068 /* carritoDisponible.png in Resources */,
 				11965E971FDB08AE009681F2 /* mercadoAbierto.jpeg in Resources */,
+				5290B2FA1FF353140038B25C /* thumSlider.png in Resources */,
+				5290B2F51FF2D03C0038B25C /* banBrokerage.png in Resources */,
 				526DC5ED1FB21D9F007CD85F /* parques.png in Resources */,
+				5290B2F61FF2D03C0038B25C /* banInversionista.png in Resources */,
 				5221BE0D1FBB7DBA00D0F89C /* houseMarker.png in Resources */,
 				5221BE151FBE103800D0F89C /* buscarFiltros.png in Resources */,
 				521E56261FC7394F00D38947 /* entrarConFcebook.png in Resources */,
@@ -997,7 +1014,6 @@
 				11788F241FDF4DCA0070F7CF /* FotosInmuebleCellController.swift in Sources */,
 				52F465FD1FE3844C0075C6BD /* Carrito.swift in Sources */,
 				110A3DDD1FEB015600C47BBF /* DatosPersonalesCellController.swift in Sources */,
-				110A3DE01FEB015600C47BBF /* LineasInfo.swift in Sources */,
 				110A3DDA1FEB015600C47BBF /* CuentasAsociadasCellController.swift in Sources */,
 				5221BE1B1FBF77D000D0F89C /* FavoritesController.swift in Sources */,
 				11788F281FE06E1D0070F7CF /* FormValidate.swift in Sources */,

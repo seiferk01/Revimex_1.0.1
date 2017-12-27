@@ -67,13 +67,15 @@ class StockController: UIViewController,UITableViewDataSource {
         
         //inserta la imagen de Bienvenida
         imagenBinvenida.image = UIImage(named: "revimexBienvenida.jpg")
+        registroBtn.layer.borderWidth = 1
+        registroBtn.layer.borderColor = UIColor.white.cgColor
         
         //genera los botones de ir a perfil o registrarse
         creaBotonesBarra()
         
         //genera el carrusel de lineas de negocio
         creaLineasDeNegocio()
-        Timer.scheduledTimer(timeInterval: 7, target: self, selector: #selector(moveToNextPage), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(moveToNextPage), userInfo: nil, repeats: true)
         
         //llamado a la lista de propiedades
         creaTablaPropiedades(url: paginaSiguiente)
@@ -293,6 +295,7 @@ class StockController: UIViewController,UITableViewDataSource {
         row.estado.text = arregloOfertas[indexPath.row].estado
         row.precio.text = "$" + arregloOfertas[indexPath.row].precio
         row.vistaFoto.image = arregloOfertas[indexPath.row].foto
+        row.vistaFoto.contentMode = .scaleAspectFill
         print(indexPath.row)
         
         row.backgroundColor = .clear

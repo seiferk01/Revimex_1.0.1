@@ -39,9 +39,11 @@ class DescriptionViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         
+        descripcionBtn.setTitleColor(azul, for: .normal)
         descripcionBtn.layer.borderWidth = 1
-        descripcionBtn.layer.borderColor = UIColor.white.cgColor
+        descripcionBtn.layer.borderColor = azul?.cgColor
         
+        serviciosBtn.setTitleColor(UIColor.white, for: .normal)
         serviciosBtn.layer.borderWidth = 1
         serviciosBtn.layer.borderColor = UIColor.white.cgColor
         
@@ -111,10 +113,18 @@ class DescriptionViewController: UIViewController {
     }
 
     @IBAction func showDescription(_ sender: Any) {
+        descripcionBtn.setTitleColor(azul, for: .normal)
+        serviciosBtn.setTitleColor(UIColor.white, for: .normal)
+        descripcionBtn.layer.borderColor = azul?.cgColor
+        serviciosBtn.layer.borderColor = UIColor.white.cgColor
         actualViewController = arrayViews[0];
     }
     
     @IBAction func showServices(_ sender: Any) {
+        descripcionBtn.setTitleColor(UIColor.white, for: .normal)
+        serviciosBtn.setTitleColor(azul, for: .normal)
+        descripcionBtn.layer.borderColor = UIColor.white.cgColor
+        serviciosBtn.layer.borderColor = azul?.cgColor
         actualViewController = arrayViews[1];
     }
     

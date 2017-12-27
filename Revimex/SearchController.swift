@@ -21,7 +21,7 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
     var searchField = UITextField()
     var filtrosContainer = UIView()
     let step: Float = 1
-    let stepPrecio: Float = 50000
+    let stepPrecio: Float = 500000
     var terrenoLabel = UILabel()
     var construccionLabel = UILabel()
     var recamarasLabel = UILabel()
@@ -34,6 +34,7 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
     var precioMax = 1000000000
     var precioMaxBase = 1000000000
     var precioMin = 0
+    var inv = 0
     
     
     var northeastLat: Double = 32.7186534
@@ -107,6 +108,7 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
         
         let tapGestureRecognizerFilter = UITapGestureRecognizer(target: self, action: #selector(filterButtonTapped(tapGestureRecognizer:)))
         let filterButton = UIButton()
+        filterButton.layer.backgroundColor = UIColor.white.cgColor
         let image = UIImage(named: "filterButton.png") as UIImage?
         filterButton.setBackgroundImage(image, for: .normal)
         filterButton.frame = CGRect(x: screenSize.width * (0.06),y: screenSize.height/6,width: screenSize.height * (0.06),height: screenSize.height * (0.06))
@@ -152,6 +154,12 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
         let precio = crearSlider(posicion: 5,titulo: "Precio Maximo",minValue: 0,maxValue: 10000000,label: precioMaxLabel)
         precio.addTarget(self, action: #selector(sliderValueDidChangePrecio(_:)), for: .valueChanged)
         
+        let tituloLabel = UILabel()
+        tituloLabel.text = "Propiedades para inversion"
+        tituloLabel.frame = CGRect(x: 0,y: (filtrosContainer.bounds.height * 0.14) * CGFloat(6),width: filtrosContainer.bounds.width,height: (filtrosContainer.bounds.height * 0.14)/2)
+        filtrosContainer.addSubview(tituloLabel)
+        let inversionista = UISwitch(frame: CGRect(x: 0,y: ((filtrosContainer.bounds.height * 0.14) * CGFloat(6))+((filtrosContainer.bounds.height * 0.14)/2),width: filtrosContainer.bounds.width*(0.75),height: (filtrosContainer.bounds.height * 0.14)/2))
+        inversionista.addTarget(self, action: #selector(switchValueDidChange(_:)), for: .valueChanged)
         
         let tapGestureRecognizerSearch = UITapGestureRecognizer(target: self, action: #selector(searchButtonTapped(tapGestureRecognizer:)))
         let searchButton = UIButton()
@@ -167,6 +175,7 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
         filtrosContainer.addSubview(recamaras)
         filtrosContainer.addSubview(banos)
         filtrosContainer.addSubview(precio)
+        filtrosContainer.addSubview(inversionista)
         filtrosContainer.addSubview(searchButton)
         view.addSubview(filtrosContainer)
     }
@@ -203,11 +212,11 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
         let filtrosContainerHeight = filtrosContainer.bounds.height
         let altura = filtrosContainerHeight * (0.14)
         
-        let tituloTerreno = UILabel()
-        tituloTerreno.text = titulo
-        tituloTerreno.frame = CGRect(x: 0,y: altura * CGFloat(posicion),width: filtrosContainerWidth,height: altura/2)
+        let tituloLabel = UILabel()
+        tituloLabel.text = titulo
+        tituloLabel.frame = CGRect(x: 0,y: altura * CGFloat(posicion),width: filtrosContainerWidth,height: altura/2)
         
-        filtrosContainer.addSubview(tituloTerreno)
+        filtrosContainer.addSubview(tituloLabel)
         
         label.frame = CGRect(x: filtrosContainerWidth*(0.75),y: altura * CGFloat(posicion),width: filtrosContainerWidth*(0.25),height: altura)
         label.textAlignment = NSTextAlignment.center
@@ -221,7 +230,7 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
         slider.minimumValue = minValue
         slider.maximumValue = maxValue
         slider.isContinuous = true
-        slider.tintColor = UIColor.green
+        slider.tintColor = azul
         
         return slider
     }
@@ -304,6 +313,15 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
             precioMaxLabel.text = String(Int(roundedStepValue))
         }
     }
+    //switch para mostrar solo propiedades de inversionistas
+    @objc func switchValueDidChange(_ sender: UISwitch) {
+        if sender.isOn {
+            inv = 1
+        }
+        else{
+            inv = 0
+        }
+    }
     
     
     //*************************funciones del GMSAutocompleteViewControllerDelegate****************************
@@ -351,7 +369,7 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
         
         let encodedAddress = formatedAddress.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         
-        var urlRequestDetails = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuwBiNaQQcYb6yXDoxEDBASvrtjWgc03Q&components=country:MX&address="+encodedAddress
+        let urlRequestDetails = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuwBiNaQQcYb6yXDoxEDBASvrtjWgc03Q&components=country:MX&address="+encodedAddress
         
         
         print(urlRequestDetails)
@@ -433,7 +451,7 @@ class SearchController: UIViewController, MGLMapViewDelegate, UITextFieldDelegat
             "swlng" : swlng,
             "nelat" : nelat,
             "nelng" : nelng,
-            "inv" : 0,
+            "inv" : inv,
             "filters" : [
                 "terreno" : terreno,
                 "const" : construccion,

@@ -127,6 +127,22 @@ class CarritoController: UIViewController {
                 }
                 
                 OperationQueue.main.addOperation({
+                    if self.arrayCarritos.count > 0 {
+                        if let labelSinCarritos = self.view.viewWithTag(101){
+                            labelSinCarritos.removeFromSuperview()
+                        }
+                    }
+                    else{
+                        let sinCarritos = UILabel()
+                        sinCarritos.text = "Aun no hay propiedades en el carrito"
+                        sinCarritos.textColor = UIColor.white
+                        sinCarritos.textAlignment = NSTextAlignment.center
+                        sinCarritos.font = UIFont.boldSystemFont(ofSize: 20.0)
+                        sinCarritos.frame = CGRect(x:0,y:0,width:self.anchoPantalla,height:self.largoPantalla * (0.8))
+                        sinCarritos.center = self.view.bounds.center
+                        sinCarritos.tag = 101
+                        self.view.addSubview(sinCarritos)
+                    }
                     self.mostrarMisCarritos()
                     activityIndicator.stopAnimating()
                     background.removeFromSuperview()
@@ -241,14 +257,20 @@ class CarritoController: UIViewController {
         let contenedorInfo = UIView()
         contenedorInfo.frame = CGRect(x: anchoPantalla * (0.1), y: (largoPantalla * (0.08)), width: anchoPantalla * (0.8), height: largoPantalla * (0.8))
         
-        let image = UIImage(named: "favoritosSinLogin.png")
-        let notLoggedMessage = UIImageView(image: image)
-        notLoggedMessage.frame = CGRect(x: 0, y: largoPantalla * (0.07), width: contenedorInfo.bounds.width, height: contenedorInfo.bounds.height)
+        let notLoggedMessage = UILabel()
+        notLoggedMessage.numberOfLines = 2
+        notLoggedMessage.text = "Inicia sesion en Revimex \n para mostrar el contenido de tu carrito"
+        notLoggedMessage.textColor = UIColor.white
+        notLoggedMessage.textAlignment = NSTextAlignment.center
+        notLoggedMessage.font = UIFont.boldSystemFont(ofSize: 20.0)
+        notLoggedMessage.frame = CGRect(x:0,y:0,width:anchoPantalla,height:largoPantalla * (0.8))
+        notLoggedMessage.center = contenedorInfo.bounds.center
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mostrarLogin(tapGestureRecognizer:)))
         let loginBtn = UIButton()
         loginBtn.frame = CGRect(x: anchoPantalla * (0.15), y: largoPantalla * (0.8), width: anchoPantalla * (0.7), height: largoPantalla * (0.06))
-        loginBtn.backgroundColor = gris
+        loginBtn.layer.borderWidth = 1
+        loginBtn.layer.borderColor = UIColor.white.cgColor
         loginBtn.setTitle("Registrarse", for: .normal)
         loginBtn.addGestureRecognizer(tapGestureRecognizer)
         
@@ -262,7 +284,7 @@ class CarritoController: UIViewController {
     @objc func mostrarLogin(tapGestureRecognizer: UITapGestureRecognizer){
         print("fue a login")
         navBarStyleCase = 2
-        performSegue(withIdentifier: "favoritesToLogin", sender: nil)
+        performSegue(withIdentifier: "carritoToLogin", sender: nil)
     }
     
     

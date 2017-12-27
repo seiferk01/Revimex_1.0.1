@@ -60,6 +60,7 @@ class InfoController: UIViewController, UIScrollViewDelegate {
         
         favoritosBtn.setBackgroundImage(UIImage(named: "favorites.png") as UIImage?, for: .normal)
         carritoBtn.setBackgroundImage(UIImage(named: "carritoDisponible.png") as UIImage?, for: .normal)
+        carritoBtn.isHidden = true
         
         //verificar favoritos
         self.revisarFavoritos()
@@ -186,6 +187,11 @@ class InfoController: UIViewController, UIScrollViewDelegate {
         print(propiedad.wcs)
         print(propiedad.fotos)
         
+        //muestra el boton de carrito si la propiedad es de salesforce
+        if propiedad.origen_propiedad == "salesforce"{
+            carritoBtn.isHidden = false
+        }
+        
         //inicia asignacion de valores a descripcion
         if propiedad.descripcion != ""{
             descripcion.text = propiedad.descripcion
@@ -219,14 +225,21 @@ class InfoController: UIViewController, UIScrollViewDelegate {
     
     //muestra las fotos
     func showPhotos() {
-        var x:Int = 0
+        //inicia el indicador de carga
+        if instanciaDescripcionController != nil {
+            instanciaDescripcionController.inciarCarga()
+        }
+        
+        var temporal: Int = 0
         var arrayFotos:[InputSource] = []
         for foto in propiedad.fotos{
             let photo = ImageSource(image: Utilities.traerImagen(urlImagen: foto))
             arrayFotos.append(photo)
-            print("selph")
-            x+=1
-            print(x)
+            //hacer asincrona la carga del arreglo y borrar esto
+            temporal += 1
+            if temporal > 4 {
+                break
+            }
         }
         contenedorCarousel.setImageInputs(arrayFotos)
         
@@ -237,6 +250,11 @@ class InfoController: UIViewController, UIScrollViewDelegate {
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
         contenedorCarousel.addGestureRecognizer(recognizer)
+        
+        //detiene el indicador de carga
+        if instanciaDescripcionController != nil {
+            instanciaDescripcionController.detenerCarga()
+        }
     }
     
     @objc func didTap() {
@@ -248,12 +266,12 @@ class InfoController: UIViewController, UIScrollViewDelegate {
     //***************************funciones favoritos**********************************
     @IBAction func favoritos(_ sender: Any) {
         
-        //inicia el indicador de carga
-        if instanciaDescripcionController != nil {
-            instanciaDescripcionController.inciarCarga()
-        }
-        
         if let userId = UserDefaults.standard.object(forKey: "userId") as? Int{
+            
+            //inicia el indicador de carga
+            if instanciaDescripcionController != nil {
+                instanciaDescripcionController.inciarCarga()
+            }
             
             let urlRequestFavoritos = "http://18.221.106.92/api/public/user/favorito"
             
@@ -310,7 +328,11 @@ class InfoController: UIViewController, UIScrollViewDelegate {
         }
         else{
             navBarStyleCase = 1
-            performSegue(withIdentifier: "descriptionToLogin", sender: nil)
+            self.present(Utilities.showAlertSimple("Aviso","Debes iniciar sesion para marcar favoritos"), animated: true, completion: {
+                OperationQueue.main.addOperation({
+                    self.performSegue(withIdentifier: "descriptionToLogin", sender: nil)
+                })
+            })
         }
         
     }
@@ -409,7 +431,12 @@ class InfoController: UIViewController, UIScrollViewDelegate {
         }
         else{
             navBarStyleCase = 1
-            performSegue(withIdentifier: "descriptionToLogin", sender: nil)
+            self.present(Utilities.showAlertSimple("Aviso","Debes iniciar sesion para agregar al carrito"), animated: true, completion: {
+                    OperationQueue.main.addOperation({
+                        self.performSegue(withIdentifier: "descriptionToLogin", sender: nil)
+                    })
+                })
+            
         }
     }
     
@@ -545,9 +572,9 @@ class InfoController: UIViewController, UIScrollViewDelegate {
                                 if let carrito = element as? NSDictionary{
                                     if let idPropiedad = carrito["propiedad_id"] as? Int{
                                         carritos.append(idPropiedad)
-                                    }
-                                    if let idCart = carrito["id"] as? Int{
-                                        self.idCarrito = idCart
+                                        if String(idPropiedad) == idOfertaSeleccionada, let idCart = carrito["id"] as? Int{
+                                            self.idCarrito = idCart
+                                        }
                                     }
                                 }
                             }
