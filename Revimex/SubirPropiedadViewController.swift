@@ -137,7 +137,7 @@ class SubirPropiedadViewController: UIViewController{
     @IBAction func actSig(_ sender: UIButton) {
         if(validar()){
             
-            if(actualViewController is MapaUbicacionInmueble!){
+            if(actualViewController is MapaUbicacionInmueble){
                 ubicacionExtraInmueble.rows = ubicacionExtraInmueble.obtValores();
             }
             if(cont<4){

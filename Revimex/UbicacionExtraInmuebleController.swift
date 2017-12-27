@@ -36,6 +36,8 @@ class UbicacionExtraInmuebleController: UIViewController, FormValidate{
     
     private func iniTextFileds(){
         
+        rows = [:];
+        
         txFlCodigoPostal.placeholder = "Código Postal: ";
         txFlCodigoPostal.text = rows!["codigoPostal"] as! String!;
         txFlCodigoPostal.isEnabled = false;
