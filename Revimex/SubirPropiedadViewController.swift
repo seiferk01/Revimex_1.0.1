@@ -41,11 +41,12 @@ class SubirPropiedadViewController: UIViewController{
     };
     
     private var org_Btn:orgBtn!;
-    
+    public var queryDireccion:String!;
     
     var detallesInmueble: DetallesInmuebleController!;
-    var ubicacionInmueble: UbicacionInmuebleController!;
+    //var ubicacionInmueble: UbicacionInmuebleController!;
     var fotosInmueble: FotosInmuebleController!;
+    var confirmarInmueble: MapaUbicacionInmueble!;
     
     var views:[UIViewController?]!;
     
@@ -65,13 +66,14 @@ class SubirPropiedadViewController: UIViewController{
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
         
         detallesInmueble = storyboard.instantiateViewController(withIdentifier: "DetallesInmueble") as! DetallesInmuebleController ;
-        ubicacionInmueble = storyboard.instantiateViewController(withIdentifier: "UbicacionInmueble") as! UbicacionInmuebleController;
+        //ubicacionInmueble = storyboard.instantiateViewController(withIdentifier: "UbicacionInmueble") as! UbicacionInmuebleController;
+        confirmarInmueble = storyboard.instantiateViewController(withIdentifier: "ConfirmarUbicacionInmueble") as! MapaUbicacionInmueble;
         fotosInmueble = storyboard.instantiateViewController(withIdentifier: "FotosInmueble") as! FotosInmuebleController;
         
         fotosInmueble.sizeMax = cnVwFormularios.frame;
+        //ubicacionInmueble.subirPropiedad = self;
         
-        
-        views = [detallesInmueble,ubicacionInmueble,fotosInmueble];
+        views = [detallesInmueble,confirmarInmueble,fotosInmueble];
         
         
         
@@ -119,7 +121,7 @@ class SubirPropiedadViewController: UIViewController{
             layAnt.cornerRadius = 18;
             btnAnt = cambiarBtn(titulo: String.fontAwesomeIcon(name: .chevronLeft), btn: btnAnt, id: 1, layer: layAnt, font: UIFont.fontAwesome(ofSize: 34), accion: #selector(actAnt(_:)));
         }
-        if(cont == 2){
+        if(cont == 3){
             let laySig = btnSig.layer;
             laySig.cornerRadius = 0;
             btnSig = cambiarBtn(titulo: "Guardar", btn: btnSig,id: 0,layer: laySig,font: UIFont(name: "HelveticaNeue-Bold", size: 20)!,accion: #selector(guardar));
@@ -128,12 +130,13 @@ class SubirPropiedadViewController: UIViewController{
             laySig.cornerRadius = 18;
             btnSig = cambiarBtn(titulo: String.fontAwesomeIcon(name: .chevronRight), btn: btnSig,id: 1, layer: laySig, font: UIFont.fontAwesome(ofSize: 34), accion: #selector(actSig(_:)));
         }
+        
         actualViewController = views[cont];
     }
     
     @IBAction func actSig(_ sender: UIButton) {
         if(validar()){
-            if(cont<3){
+            if(cont<4){
                 cont = cont + 1;
                 actualizar();
             }
@@ -213,11 +216,10 @@ class SubirPropiedadViewController: UIViewController{
     @objc func guardar(){
         if(actualViewController as! FormValidate).esValido(){
             let rowsDetalles = (detallesInmueble)?.obtValores()!;
-            let rowsUbicacion = (ubicacionInmueble)?.obtValores()!;
+            //let rowsUbicacion = (ubicacionInmueble)?.obtValores()!;
             let rowsFotos = (fotosInmueble)?.obtValores()!;
             let rowTotal = [
-                "detallesInmueble" : rowsDetalles!,
-                "ubicacionInmueble" : rowsUbicacion!,
+                "detallesInmueble" : rowsDetalles!
             ];
             print(rowTotal);
             do{

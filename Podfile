@@ -14,6 +14,7 @@ target 'Revimex' do
   pod 'FontAwesome.swift'
   pod 'Eureka'
   pod 'Material', '~> 2.0'
+  pod 'MapboxGeocoder.swift', '~> 0.7'
 
   # Pods for Revimex
 

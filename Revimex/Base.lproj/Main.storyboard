@@ -741,21 +741,125 @@
             </objects>
             <point key="canvasLocation" x="7919" y="1303"/>
         </scene>
-        <!--View Controller-->
+        <!--Mapa Ubicacion Inmueble-->
         <scene sceneID="I9w-oA-FaZ">
             <objects>
-                <viewController id="K40-pw-Q0A" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmarUbicacionInmueble" id="K40-pw-Q0A" customClass="MapaUbicacionInmueble" customModule="Revimex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ies-l1-rmu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acN-v9-5Vy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mapa Satelital: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0db-43-61v">
+                                <rect key="frame" x="112" y="305" width="151.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="JvQ-Oe-wzV"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Peh-Ij-i0L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzI-QO-Awk" customClass="Switch" customModule="Material">
+                                <rect key="frame" x="95" y="345" width="180" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="A1I-oZ-XE8"/>
+                                    <constraint firstAttribute="width" constant="180" id="YvG-dc-7Eq"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMu-Wh-KQA" customClass="TextField" customModule="Material">
+                                <rect key="frame" x="8" y="32" width="359" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bsD-G6-RMW"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsy-ga-gUk" customClass="TextField" customModule="Material">
+                                <rect key="frame" x="8" y="94" width="178" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VtF-se-UOJ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZkX-8S-Cg9" customClass="TextField" customModule="Material">
+                                <rect key="frame" x="189" y="94" width="178" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AKI-qJ-iBB"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nO-NA-lqU" customClass="TextField" customModule="Material">
+                                <rect key="frame" x="8" y="156" width="178" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6Pj-1L-TGz"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rHc-0q-ocZ" customClass="TextField" customModule="Material">
+                                <rect key="frame" x="189" y="156" width="87" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="wht-US-eTh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzg-Wd-vEb" customClass="TextField" customModule="Material">
+                                <rect key="frame" x="280" y="156" width="87" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0o4-hQ-MTt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0db-43-61v" firstAttribute="centerX" secondItem="ies-l1-rmu" secondAttribute="centerX" id="22I-6k-Fz2"/>
+                            <constraint firstItem="acN-v9-5Vy" firstAttribute="trailing" secondItem="VzZ-RF-QnK" secondAttribute="trailing" id="49G-e4-2nI"/>
+                            <constraint firstItem="acN-v9-5Vy" firstAttribute="top" secondItem="VzZ-RF-QnK" secondAttribute="top" id="DAj-rD-tfE"/>
+                            <constraint firstItem="rHc-0q-ocZ" firstAttribute="top" secondItem="ZkX-8S-Cg9" secondAttribute="bottom" constant="32" id="DvF-YZ-VB5"/>
+                            <constraint firstItem="Dsy-ga-gUk" firstAttribute="leading" secondItem="VzZ-RF-QnK" secondAttribute="leading" constant="8" id="Gql-k3-dZ4"/>
+                            <constraint firstItem="VzZ-RF-QnK" firstAttribute="trailing" secondItem="dzg-Wd-vEb" secondAttribute="trailing" constant="8" id="Kgx-Zu-sJD"/>
+                            <constraint firstItem="ZkX-8S-Cg9" firstAttribute="top" secondItem="QMu-Wh-KQA" secondAttribute="bottom" constant="32" id="LYi-CJ-6Td"/>
+                            <constraint firstItem="VzZ-RF-QnK" firstAttribute="trailing" secondItem="ZkX-8S-Cg9" secondAttribute="trailing" constant="8" id="Mi1-vn-XG2"/>
+                            <constraint firstItem="VzZ-RF-QnK" firstAttribute="trailing" secondItem="QMu-Wh-KQA" secondAttribute="trailing" constant="8" id="Myi-gX-4Ja"/>
+                            <constraint firstItem="VzZ-RF-QnK" firstAttribute="trailing" secondItem="nzI-QO-Awk" secondAttribute="trailing" constant="100" id="NHV-OS-qPA"/>
+                            <constraint firstItem="acN-v9-5Vy" firstAttribute="leading" secondItem="VzZ-RF-QnK" secondAttribute="leading" id="VB9-Hh-Anl"/>
+                            <constraint firstItem="0db-43-61v" firstAttribute="bottom" secondItem="nzI-QO-Awk" secondAttribute="firstBaseline" constant="-10" id="WXy-Hn-moE"/>
+                            <constraint firstItem="QMu-Wh-KQA" firstAttribute="top" secondItem="VzZ-RF-QnK" secondAttribute="top" constant="32" id="WsM-ab-1A7"/>
+                            <constraint firstItem="dzg-Wd-vEb" firstAttribute="leading" secondItem="rHc-0q-ocZ" secondAttribute="trailing" constant="4" id="cll-ZD-ks8"/>
+                            <constraint firstItem="3nO-NA-lqU" firstAttribute="leading" secondItem="VzZ-RF-QnK" secondAttribute="leading" constant="8" id="eXD-yz-DvF"/>
+                            <constraint firstItem="ZkX-8S-Cg9" firstAttribute="leading" secondItem="Dsy-ga-gUk" secondAttribute="trailing" constant="3" id="hNC-Ri-rwo"/>
+                            <constraint firstItem="dzg-Wd-vEb" firstAttribute="width" secondItem="rHc-0q-ocZ" secondAttribute="width" id="hdd-lw-2ff"/>
+                            <constraint firstItem="QMu-Wh-KQA" firstAttribute="leading" secondItem="VzZ-RF-QnK" secondAttribute="leading" constant="8" id="iaQ-9Y-mxm"/>
+                            <constraint firstItem="rHc-0q-ocZ" firstAttribute="leading" secondItem="3nO-NA-lqU" secondAttribute="trailing" constant="3" id="jBR-lI-mGe"/>
+                            <constraint firstItem="3nO-NA-lqU" firstAttribute="top" secondItem="Dsy-ga-gUk" secondAttribute="bottom" constant="32" id="ndg-Eb-Y4A"/>
+                            <constraint firstItem="dzg-Wd-vEb" firstAttribute="top" secondItem="ZkX-8S-Cg9" secondAttribute="bottom" constant="32" id="nhc-JW-sio"/>
+                            <constraint firstItem="Dsy-ga-gUk" firstAttribute="top" secondItem="QMu-Wh-KQA" secondAttribute="bottom" constant="32" id="nvV-BI-sZl"/>
+                            <constraint firstItem="VzZ-RF-QnK" firstAttribute="bottom" secondItem="nzI-QO-Awk" secondAttribute="bottom" id="oR4-Zg-1Oc"/>
+                            <constraint firstItem="3nO-NA-lqU" firstAttribute="width" secondItem="Dsy-ga-gUk" secondAttribute="width" id="onA-AA-v16"/>
+                            <constraint firstItem="acN-v9-5Vy" firstAttribute="bottom" secondItem="VzZ-RF-QnK" secondAttribute="bottom" id="wLZ-LC-UVg"/>
+                            <constraint firstItem="ZkX-8S-Cg9" firstAttribute="width" secondItem="Dsy-ga-gUk" secondAttribute="width" id="zPI-VL-3KH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VzZ-RF-QnK"/>
                     </view>
                     <size key="freeformSize" width="375" height="375"/>
+                    <connections>
+                        <outlet property="mapContainer" destination="acN-v9-5Vy" id="LuM-Nd-Qr9"/>
+                        <outlet property="txFlCalle" destination="rHc-0q-ocZ" id="Tr8-3g-Ftk"/>
+                        <outlet property="txFlCodigoPostal" destination="QMu-Wh-KQA" id="fe7-dB-z04"/>
+                        <outlet property="txFlColonia" destination="3nO-NA-lqU" id="Pyp-41-q5r"/>
+                        <outlet property="txFlEstado" destination="Dsy-ga-gUk" id="9Kz-Rg-IaQ"/>
+                        <outlet property="txFlMunicipio" destination="ZkX-8S-Cg9" id="hd6-Ia-Wtx"/>
+                        <outlet property="txFlNumero" destination="dzg-Wd-vEb" id="lDu-6U-zpq"/>
+                        <outlet property="typeMap" destination="nzI-QO-Awk" id="Kie-ag-EPK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RhM-C7-Yoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8615" y="1303"/>
+            <point key="canvasLocation" x="8613.6000000000004" y="1302.9985007496252"/>
         </scene>
         <!--Fotos Inmueble Controller-->
         <scene sceneID="vB2-Mh-IZG">

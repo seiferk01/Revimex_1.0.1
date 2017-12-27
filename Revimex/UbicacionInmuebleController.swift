@@ -19,12 +19,14 @@ class UbicacionInmuebleController: FormViewController,FormValidate {
     
     private var manualFlag:Bool!;
     
+    public var subirPropiedad:SubirPropiedadViewController!;
     public var codeZip:ZipCodeRow!;
     public var edo: ActionSheetRow<String>!;
     public var mun: ActionSheetRow<String>!;
     public var col:ActionSheetRow<String>!;
     public var calle:TextRow!;
     public var numExt:IntRow!;
+    public var numInt:IntRow!;
     public var mnz:TextRow!;
     public var lote:TextRow!;
     public var tipoCalle:ActionSheetRow<String>!;
@@ -75,7 +77,12 @@ class UbicacionInmuebleController: FormViewController,FormValidate {
             row.title = "Número Exterior";
             row.tag = "numeroExterior";
             row.placeholder = "Nº.  ";
-            row.add(rule: RuleRequired());
+        }
+        
+        numInt = IntRow(){row in
+            row.title = "Número Interior";
+            row.tag = "numeroInterior";
+            row.placeholder = "Nº.  ";
         }
         
         mnz = TextRow(){row in
@@ -303,13 +310,23 @@ class UbicacionInmuebleController: FormViewController,FormValidate {
         rows![mnz.tag!] = self.mnz.value;
         rows![lote.tag!] = self.lote.value;
         rows![tipoCalle.tag!] = self.tipoCalle.value;
-        
         return self.rows;
+    }
+    
+    func cadenaUbicacion()->String{
+        
+        if (self.numExt.value) != nil {
+        return ("\(self.edo.value!) \(self.mun.value!) \(self.calle.value!) \(self.numExt.value!)") ;
+        }else{
+            return ("\(self.edo.value!) \(self.mun.value!) \(self.calle.value!)") ;
+        }
+    
     }
     
     func esValido() -> Bool {
         var valido = true;
         validar();
+        subirPropiedad.queryDireccion = cadenaUbicacion();
         let keys = rows?.keys;
         for key in keys!{
             if(rows![key] as! [ValidationError?]).count>0{
