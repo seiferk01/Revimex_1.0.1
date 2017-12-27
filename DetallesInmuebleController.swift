@@ -169,9 +169,24 @@ class DetallesInmuebleController: FormViewController,FormValidate{
         rows![antiguedad.tag!] = self.antiguedad.value!;
         rows![descripcion.tag!] = self.descripcion.value!;
         rows![serviciosBasicos.tag!] = Array(self.serviciosBasicos.value!);
-        rows![areas.tag!] = Array(self.areas.value!);
-        rows![detalles.tag!] = Array(self.detalles.value!);
-        rows![entorno.tag!] = Array(self.entorno.value!);
+        
+        var areasSet:Set<String>! = Set();
+        var detallesSet:Set<String>! = Set();
+        var entornoSet:Set<String>! = Set();
+        if(self.areas.value != nil){
+            areasSet = self.areas.value!;
+        }
+        if(self.detalles.value != nil){
+            detallesSet = self.detalles.value!;
+        }
+        if(self.entorno.value != nil){
+            entornoSet = self.entorno.value!;
+        }
+        
+        rows![areas.tag!] = Array(areasSet);
+        rows![detalles.tag!] = Array(detallesSet);
+        rows![entorno.tag!] = Array(entornoSet);
+        
         return self.rows;
     }
     

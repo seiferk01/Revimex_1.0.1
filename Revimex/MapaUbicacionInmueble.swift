@@ -38,6 +38,7 @@ class MapaUbicacionInmueble: UIViewController,MGLMapViewDelegate,UIGestureRecogn
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        rows = [:];
         navigationController?.navigationBar.isHidden = true;
         posiblesPropiedades = [];
         mapbox = MGLMapView(frame: mapContainer.frame, styleURL: URL(string: "mapbox://styles/mapbox/light-v9"));

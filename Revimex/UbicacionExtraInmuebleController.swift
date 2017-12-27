@@ -23,20 +23,25 @@ class UbicacionExtraInmuebleController: UIViewController, FormValidate{
     @IBOutlet weak var txFlManzana: TextField!
     @IBOutlet weak var txFlLote: TextField!
     
+    public var subirPropiedad:SubirPropiedadViewController!;
+    
 
     override func viewDidLoad() {
         super.viewDidLoad();
         iniTextFileds();
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        iniTextFileds();
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     private func iniTextFileds(){
-        
-        rows = [:];
         
         txFlCodigoPostal.placeholder = "Código Postal: ";
         txFlCodigoPostal.text = rows!["codigoPostal"] as! String!;
@@ -59,7 +64,7 @@ class UbicacionExtraInmuebleController: UIViewController, FormValidate{
         txFlColonia.colorEnable();
         
         txFlCalle.placeholder = "Calle: ";
-        txFlColonia.text = rows!["calle"] as! String!;
+        txFlCalle.text = rows!["calle"] as! String!;
         txFlCalle.isEnabled = false;
         txFlCalle.colorEnable();
         
@@ -83,9 +88,10 @@ class UbicacionExtraInmuebleController: UIViewController, FormValidate{
     }
     
     func obtValores() -> [String : Any?]! {
-        rows!["numeroInterior"] = self.txFlNumeroInt.text as! String!;
-        rows!["manzana"] = self.txFlManzana.text as! String!;
-        rows!["lote"] = self.txFlLote.text as! String!;
+        rows!["numeroInterior"] = self.txFlNumeroInt.getActualText()! ;
+        rows!["manzana"] = self.txFlManzana.getActualText()!;
+        rows!["lote"] = self.txFlLote.getActualText()!;
+        rows!["tipoCalle"] = "Calle";
         return rows;
     }
     
@@ -93,11 +99,14 @@ class UbicacionExtraInmuebleController: UIViewController, FormValidate{
         var valido = false;
         let alert = UIAlertController(title: " ¡Aviso! ", message: "¿Esta seguro que ha comprobado su información?", preferredStyle: UIAlertControllerStyle.alert);
         alert.addAction(UIAlertAction(title: "OK", style: .default){action in
+            self.subirPropiedad.byPass();
             valido = true;
         });
         alert.addAction(UIAlertAction(title: "NO", style: .default){action in
             valido = false;
         });
+        self.present(alert, animated: true, completion: nil);
         return valido;
     }
+    
 }

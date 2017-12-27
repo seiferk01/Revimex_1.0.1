@@ -72,6 +72,7 @@ class SubirPropiedadViewController: UIViewController{
         ubicacionExtraInmueble = storyboard.instantiateViewController(withIdentifier: "UbicacionExtraInmueble") as! UbicacionExtraInmuebleController;
         fotosInmueble = storyboard.instantiateViewController(withIdentifier: "FotosInmueble") as! FotosInmuebleController;
         
+        ubicacionExtraInmueble.subirPropiedad = self;
         fotosInmueble.sizeMax = cnVwFormularios.frame;
         //ubicacionInmueble.subirPropiedad = self;
         
@@ -138,12 +139,19 @@ class SubirPropiedadViewController: UIViewController{
         if(validar()){
             
             if(actualViewController is MapaUbicacionInmueble){
-                ubicacionExtraInmueble.rows = ubicacionExtraInmueble.obtValores();
+                ubicacionExtraInmueble.rows = mapaUbicacionInmueble.obtValores();
             }
             if(cont<4){
                 cont = cont + 1;
                 actualizar();
             }
+        }
+    }
+    
+    public func byPass(){
+        OperationQueue.main.addOperation {
+            self.cont = self.cont + 1;
+            self.actualizar();
         }
     }
     
@@ -218,17 +226,18 @@ class SubirPropiedadViewController: UIViewController{
     @objc func guardar(){
         if(actualViewController as! FormValidate).esValido(){
             let rowsDetalles = (detallesInmueble)?.obtValores()!;
-            //let rowsUbicacion = (ubicacionInmueble)?.obtValores()!;
+            let rowsUbicacion = (ubicacionExtraInmueble)?.obtValores()!;
             let rowsFotos = (fotosInmueble)?.obtValores()!;
             let rowTotal = [
-                "detallesInmueble" : rowsDetalles!
+                "detallesInmueble" : rowsDetalles!,
+                "ubicacionInmueble" : rowsUbicacion
             ];
             print(rowTotal);
             do{
                 let data = try JSONSerialization.data(withJSONObject: rowTotal , options: .prettyPrinted);
                 let dataString:String! = String(data: data, encoding: .utf8);
                  print(dataString);
-                subirPropiedad(data: data);
+                //subirPropiedad(data: data);
             }catch{
                 print(error);
             }
