@@ -22,7 +22,6 @@ class FavoritesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setCustomBackgroundAndNavbar()
-        favs = self;
         
         instanciaFavoritosController = self
         
@@ -169,7 +168,7 @@ class FavoritesController: UIViewController {
                 })
                 
             }
-        }.resume()
+            }.resume()
     }
     
     func mostrarMisFavoritos(){
@@ -181,7 +180,7 @@ class FavoritesController: UIViewController {
         let contenedorFavoritos = UIScrollView()
         
         contenedorFavoritos.frame = CGRect(x: 0, y: (largoPantalla * (0.07) + (navigationController?.navigationBar.bounds.height)!+20), width: anchoPantalla, height: (largoPantalla * 0.92) - tabBarHeight!)
-        let largoContenido = largoDeFavorito * CGFloat(arrayFavoitos.count) 
+        let largoContenido = largoDeFavorito * CGFloat(arrayFavoitos.count)
         contenedorFavoritos.contentSize = CGSize(width: anchoPantalla, height: largoContenido)
         
         for (index, favorito) in arrayFavoitos.enumerated() {
@@ -275,7 +274,6 @@ class FavoritesController: UIViewController {
     
     
     func solicitarRegistro(){
-        
         let contenedorInfo = UIView()
         contenedorInfo.frame = CGRect(x: anchoPantalla * (0.1), y: (largoPantalla * (0.08)), width: anchoPantalla * (0.8), height: largoPantalla * (0.8))
         
@@ -300,7 +298,6 @@ class FavoritesController: UIViewController {
         view.addSubview(contenedorInfo)
         view.addSubview(loginBtn)
         view.sendSubview(toBack: contenedorInfo)
-        
     }
     
     
@@ -327,3 +324,4 @@ class FavoritesController: UIViewController {
     }
     
 }
+

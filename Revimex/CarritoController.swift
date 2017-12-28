@@ -86,7 +86,7 @@ class CarritoController: UIViewController {
                                 if let created = carrito["created_at"] as? String{
                                     objectCarrito.fechaAgregado = created
                                 }
-
+                                
                                 if let idPropiedad = carrito["propiedad_id"] as? Int{
                                     objectCarrito.idPropiedad = String(idPropiedad)
                                 }
@@ -112,7 +112,7 @@ class CarritoController: UIViewController {
                                         }
                                     }
                                 }
-                                            
+                                
                                 self.arrayCarritos.append(objectCarrito)
                                 
                                 
@@ -121,7 +121,7 @@ class CarritoController: UIViewController {
                         }
                         
                     }
-             
+                    
                 }catch {
                     print(error)
                 }
@@ -149,31 +149,31 @@ class CarritoController: UIViewController {
                 })
                 
             }
-        }.resume()
+            }.resume()
     }
     
     func mostrarMisCarritos(){
-
+        
         let largoDeCarrito = (largoPantalla * 0.6)
         let tabBarHeight = self.tabBarController?.tabBar.frame.size.height
-
+        
         let contenedorCarritos = UIScrollView()
-
+        
         contenedorCarritos.frame = CGRect(x: 0, y: (navigationController?.navigationBar.bounds.height)! + 20, width: anchoPantalla, height: largoPantalla - tabBarHeight!)
         let largoContenido = largoDeCarrito * CGFloat(arrayCarritos.count)
         contenedorCarritos.contentSize = CGSize(width: anchoPantalla, height: largoContenido)
-
+        
         for (index, carrito) in arrayCarritos.enumerated() {
-
+            
             //tamaño del marco de elemento: 60% de la pantalla
             let marcoCarrito = UIView()
-
+            
             marcoCarrito.frame.origin.x = 0
             marcoCarrito.frame.origin.y = largoDeCarrito * CGFloat(index)
             marcoCarrito.frame.size = CGSize(width: anchoPantalla, height: largoDeCarrito)
             marcoCarrito.addBorder(toSide: .Top, withColor: UIColor.gray.cgColor, andThickness: 1.0)
             marcoCarrito.addBorder(toSide: .Bottom, withColor: UIColor.gray.cgColor, andThickness: 1.0)
-
+            
             let background = UIImageView(image: carrito.foto)
             background.frame = marcoCarrito.bounds
             background.frame.size = CGSize(width: anchoPantalla, height: largoDeCarrito - 2)
@@ -183,13 +183,13 @@ class CarritoController: UIViewController {
             background.addSubview(visualEffectView)
             marcoCarrito.addSubview(background)
             marcoCarrito.sendSubview(toBack: background)
-
+            
             let largoContenedor = marcoCarrito.bounds.height
-
+            
             //tamaño de la foto: 60% del marco
             let foto = UIImageView(image: carrito.foto)
             foto.frame = CGRect(x: 0,y: (largoContenedor * 0.05),width: anchoPantalla, height: (largoContenedor * 0.55))
-
+            
             //tamaño de la foto: 40% del marco
             let info = UIView()
             info.frame = CGRect(x: anchoPantalla * 0.02,y: (largoContenedor * 0.62),width: anchoPantalla * 0.96, height: (largoContenedor * 0.36))
@@ -198,7 +198,7 @@ class CarritoController: UIViewController {
             info.layer.cornerRadius = 5
             info.layer.borderWidth = 0.5
             info.layer.borderColor = UIColor.gray.cgColor
-
+            
             let largoInfo = info.bounds.height
             //elementos de info
             let  titulo = UILabel()
@@ -215,41 +215,41 @@ class CarritoController: UIViewController {
             let detallesBtn = UIButton()
             //            let urlReferenciaBtn = UIButton()
             //            urlReferenciaBtn.setTitle("Ver en "+favorito.referencia, for: .normal)
-
+            
             titulo.frame = CGRect(x: 5,y: -5,width: info.bounds.width, height: (largoInfo * 0.2))
-
+            
             estado.frame = CGRect(x: 5,y: (largoInfo * 0.2),width: info.bounds.width, height: (largoInfo * 0.2))
             precio.frame = CGRect(x: 5,y: (largoInfo * 0.4),width: info.bounds.width, height: (largoInfo * 0.2))
             referencia.frame = CGRect(x: 5,y: (largoInfo * 0.6),width: info.bounds.width, height: (largoInfo * 0.2))
             agregado.frame = CGRect(x: 5,y: (largoInfo * 0.8),width: info.bounds.width, height: (largoInfo * 0.2))
-
+            
             let tapGestureRecognizerDetalles = goToDetailsGestureRecognizer(target: self, action: #selector(irDetalles(tapGestureRecognizer: )))
             tapGestureRecognizerDetalles.idPropiedad = carrito.idPropiedad
             detallesBtn.frame = CGRect(x: 0,y: 0,width: marcoCarrito.bounds.width, height: marcoCarrito.bounds.height)
             detallesBtn.addGestureRecognizer(tapGestureRecognizerDetalles)
             //urlReferenciaBtn.frame = CGRect(x: 0,y: (largoContenedor * 0.8),width: anchoPantalla, height: (largoContenedor * 0.33))
-
+            
             info.addSubview(titulo)
             info.addSubview(estado)
             info.addSubview(precio)
             info.addSubview(referencia)
             info.addSubview(agregado)
             //            info.addSubview(urlReferenciaBtn)
-
-
+            
+            
             marcoCarrito.addSubview(foto)
             marcoCarrito.addSubview(info)
             marcoCarrito.addSubview(detallesBtn)
             contenedorCarritos.addSubview(marcoCarrito)
         }
-
+        
         if let oldContainer = self.view.viewWithTag(100){
             oldContainer.removeFromSuperview()
         }
         contenedorCarritos.tag = 100
         view.addSubview(contenedorCarritos)
         view.sendSubview(toBack: contenedorCarritos)
-
+        
     }
     
     
@@ -295,3 +295,4 @@ class CarritoController: UIViewController {
     }
     
 }
+

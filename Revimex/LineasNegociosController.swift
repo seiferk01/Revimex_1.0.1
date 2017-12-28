@@ -53,10 +53,10 @@ class LineasNegociosController: UIViewController {
     @IBAction func actionBrokerage(_ sender: UIButton) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
-        //let formContainer = storyboard.instantiateViewController(withIdentifier: "FormContainer");
+        let formContainer = storyboard.instantiateViewController(withIdentifier: "FormContainer");
         
         
-        //navigationController?.pushViewController(formContainer, animated: true);
+        navigationController?.pushViewController(formContainer, animated: true);
     }
     
     

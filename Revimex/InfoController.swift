@@ -71,7 +71,7 @@ class InfoController: UIViewController, UIScrollViewDelegate {
         //request a detalles
         requestDetails()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -159,7 +159,7 @@ class InfoController: UIViewController, UIScrollViewDelegate {
                 })
                 
             }
-        }.resume()
+            }.resume()
         
     }
     
@@ -225,10 +225,6 @@ class InfoController: UIViewController, UIScrollViewDelegate {
     
     //muestra las fotos
     func showPhotos() {
-        //inicia el indicador de carga
-        if instanciaDescripcionController != nil {
-            instanciaDescripcionController.inciarCarga()
-        }
         
         var temporal: Int = 0
         var arrayFotos:[InputSource] = []
@@ -381,11 +377,7 @@ class InfoController: UIViewController, UIScrollViewDelegate {
                         let json = try JSONSerialization.jsonObject (with: data) as! [String:Any?]
                         
                         print(json)
-                        if(favs != nil){
-                            
-                            favs.msotrarFavoritos(userId: UserDefaults.standard.integer(forKey: "userId"));
                         
-                        }
                         if let jsonFavoritos = json["favoritos"] as? [Int]{
                             favoritos = jsonFavoritos
                         }
@@ -411,7 +403,7 @@ class InfoController: UIViewController, UIScrollViewDelegate {
                     })
                     
                 }
-            }.resume()
+                }.resume()
         }
         
     }
@@ -436,10 +428,10 @@ class InfoController: UIViewController, UIScrollViewDelegate {
         else{
             navBarStyleCase = 1
             self.present(Utilities.showAlertSimple("Aviso","Debes iniciar sesion para agregar al carrito"), animated: true, completion: {
-                    OperationQueue.main.addOperation({
-                        self.performSegue(withIdentifier: "descriptionToLogin", sender: nil)
-                    })
+                OperationQueue.main.addOperation({
+                    self.performSegue(withIdentifier: "descriptionToLogin", sender: nil)
                 })
+            })
             
         }
     }
@@ -511,7 +503,7 @@ class InfoController: UIViewController, UIScrollViewDelegate {
         
         var request = URLRequest (url: url)
         request.httpMethod = "DELETE"
-    
+        
         print(idOfertaSeleccionada)
         
         let session  = URLSession.shared
@@ -609,7 +601,7 @@ class InfoController: UIViewController, UIScrollViewDelegate {
                     })
                     
                 }
-            }.resume()
+                }.resume()
         }
         
     }
@@ -628,5 +620,6 @@ class InfoController: UIViewController, UIScrollViewDelegate {
         
     }
     
-
+    
 }
+

@@ -15,6 +15,7 @@ target 'Revimex' do
   pod 'Eureka'
   pod 'Material', '~> 2.0'
   pod 'ImageSlideshow', '~> 1.4'
+  pod 'MapboxGeocoder.swift', '~> 0.7'
 
   # Pods for Revimex
 
