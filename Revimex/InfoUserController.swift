@@ -22,15 +22,7 @@ class InfoUserController: UIViewController,UITableViewDataSource,UITableViewDele
     public var imgUser:UIImage!;
     public var imgBack:UIImage!;
     public var cargado:Bool = false;
-    
-    public var nomUsu:String!;
-    public var estado:String!;
-    public var nombre:String!;
-    public var pApellido:String!;
-    public var sApellido:String!;
-    public var telefono:String!;
-    public var rfc:String!;
-    public var direccion:String!;
+    public var infoCargada:Bool = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +70,9 @@ class InfoUserController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tipo = data![indexPath.row];
-        if(indexPath.row>=((data?.count)! - 1)){
+        if(indexPath.row>=((data?.count)! - 1) && !infoCargada){
             obtInfoUser();
+            infoCargada = true;
         }
         return getCell(tipo: tipo, indexPath: indexPath)
     }
@@ -106,12 +99,13 @@ class InfoUserController: UIViewController,UITableViewDataSource,UITableViewDele
         case UserInfoCell.KEY:
             let item = tableInfoUser.dequeueReusableCell(withIdentifier: UserInfoCell.KEY) as! UserInfoCell;
             if(!cargado){
-            let imgUs = UIImage.fontAwesomeIcon(name: .userO, textColor: UIColor.black, size: CGSize(width: 100, height: 100 ));
-            var imgBack = Utilities.escalar(img: imgUs, nwAncho: item.imgUser.frame.size, sizeOriginal: CGRect(x: 0, y: 0, width: item.imgBackground.bounds.width, height: item.imgBackground.bounds.height));
-            imgBack = Utilities.blur(img: imgBack, blurVal: 80);
-            (data![indexPath.row] as! UserInfoCellContent).imgUser = imgUs;
-            (data![indexPath.row] as! UserInfoCellContent).imgBackground = imgBack;
-            item.set(datos:(data![indexPath.row] as! UserInfoCellContent));
+                let imgUs = UIImage.fontAwesomeIcon(name: .userO, textColor: UIColor.black, size: CGSize(width: 500, height: 500 ));
+                (data![indexPath.row] as! UserInfoCellContent).imgUser = imgUs;
+                
+                var imgBack = Utilities.escalar(img: imgUs, nwAncho: item.imgUser.frame.size, sizeOriginal: CGRect(x: 0, y: 0, width: item.imgBackground.bounds.width, height: item.imgBackground.bounds.height));
+                imgBack = Utilities.blur(img: imgBack, blurVal: 80);
+                (data![indexPath.row] as! UserInfoCellContent).imgBackground = imgBack;
+                item.set(datos:(data![indexPath.row] as! UserInfoCellContent));
                 cargado = true;
             }else{
                 item.set(datos: (data![indexPath.row]) as! UserInfoCellContent);
@@ -130,12 +124,14 @@ class InfoUserController: UIViewController,UITableViewDataSource,UITableViewDele
         case DatosPersonalesCellController.KEY:
             let item = tableInfoUser.dequeueReusableCell(withIdentifier: DatosPersonalesCellController.KEY) as! DatosPersonalesCellController;
             data![indexPath.row].setController(controller: item);
+            item.infoUserController = self;
             //item.backgroundColor = UIColor(white: 1, alpha: 0);
             return item;
         case CuentasAsociadasCellController.KEY:
             let item = tableInfoUser.dequeueReusableCell(withIdentifier: CuentasAsociadasCellController.KEY) as!
             CuentasAsociadasCellController;
             data![indexPath.row].setController(controller: item);
+            item.infoUserController = self;
             //item.backgroundColor = UIColor(white: 1, alpha: 0);
             return item;
         case RowButtonsCellController.KEY:
@@ -155,16 +151,10 @@ class InfoUserController: UIViewController,UITableViewDataSource,UITableViewDele
         let personales = (data![2] as! DatosPersonalesCellContent).controller as! DatosPersonalesCellController;
         let cuentas = (data![3] as! CuentasAsociadasCellContent).controller as! CuentasAsociadasCellController;
         
-        
-        if(Utilities.isValidEmail(testStr: cuentas.txFlGmail.text!)){
+        if(Utilities.isValidEmail(testStr: cuentas.txFlFacebook.getActualText())){
             self.setInfoUser(principal: principal, personales: personales, cuentas: cuentas);
         }
-    }
-    
-    private func disEn_txFl(){
-        for item in self.data!{
-            var control = item.controller;
-        }
+        
     }
     
     //Actualiza la información de usuario
@@ -172,20 +162,19 @@ class InfoUserController: UIViewController,UITableViewDataSource,UITableViewDele
         
         let url = "http://18.221.106.92/api/public/user";
         guard let urlUpdate = URL(string:url)else{print("ERROR UPDATE");return};
-        print(estado);
         let parameters: [String:Any?] = [
             "user_id" :  user_id,
-            "email" : principal.txFlNombreUsuario.text,
-            "name" : personales.txFlNombre.text,
-            "apellidoPaterno" : personales.txFlPApellido.text,
-            "apellidoMaterno" : personales.txFlSApellido.text,
-            "estado" : principal.txFlResidencia.text,
-            "tel" : personales.txFlTelefono.text,
-            "facebook" : cuentas.txFlFacebook.text,
-            "google" : cuentas.txFlGmail.text,
-            "fecha_nacimiento" : personales.tcFlNacimiento.text,
-            "direccion" : personales.txFlDireccion.text,
-            "rfc" : personales.txFlRFC.text
+            "email" : principal.txFlNombreUsuario.getActualText(),
+            "name" : personales.txFlNombre.getActualText(),
+            "apellidoPaterno" : personales.txFlPApellido.getActualText(),
+            "apellidoMaterno" : personales.txFlSApellido.getActualText(),
+            "estado" : principal.txFlResidencia.getActualText(),
+            "tel" : personales.txFlTelefono.getActualText(),
+            "facebook" : cuentas.txFlFacebook.getActualText(),
+            "google" : cuentas.txFlGmail.getActualText(),
+            "fecha_nacimiento" : personales.tcFlNacimiento.getActualText(),
+            "direccion" : personales.txFlDireccion.getActualText(),
+            "rfc" : personales.txFlRFC.getActualText()
         ];
         
         var request = URLRequest(url: urlUpdate);
@@ -222,7 +211,7 @@ class InfoUserController: UIViewController,UITableViewDataSource,UITableViewDele
                     self.present(alert,animated:true,completion:nil);
                 }
             }
-        }.resume();
+            }.resume();
         
     }
     
@@ -290,7 +279,7 @@ class InfoUserController: UIViewController,UITableViewDataSource,UITableViewDele
                     }
                 };
             }
-        }.resume();
+            }.resume();
         
     }
     

@@ -22,6 +22,7 @@ class FavoritesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setCustomBackgroundAndNavbar()
+        favs = self;
         
         instanciaFavoritosController = self
         
@@ -274,6 +275,7 @@ class FavoritesController: UIViewController {
     
     
     func solicitarRegistro(){
+        
         let contenedorInfo = UIView()
         contenedorInfo.frame = CGRect(x: anchoPantalla * (0.1), y: (largoPantalla * (0.08)), width: anchoPantalla * (0.8), height: largoPantalla * (0.8))
         
@@ -298,6 +300,7 @@ class FavoritesController: UIViewController {
         view.addSubview(contenedorInfo)
         view.addSubview(loginBtn)
         view.sendSubview(toBack: contenedorInfo)
+        
     }
     
     

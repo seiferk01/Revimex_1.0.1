@@ -21,8 +21,7 @@ class TableViewCell: UITableViewCell {
     
     
     override func awakeFromNib() {
-        super.awakeFromNib()
-        
+        super.awakeFromNib();
         // Initialization code
     }
     

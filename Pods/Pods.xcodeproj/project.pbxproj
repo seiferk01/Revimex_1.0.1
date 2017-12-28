@@ -808,6 +808,27 @@
 			remoteGlobalIDString = DDBCFDE490CDFDABF6F16A26F346932D;
 			remoteInfo = FacebookCore;
 		};
+		41E4C65DE85C663862F985A7B74068E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C235F77E101E742652CCF98FFDFA5182;
+			remoteInfo = IQKeyboardManagerSwift;
+		};
+		4303AF2FE7AC34D4F1C5411608D86C8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3B0D303D1E2FEEE382F99CB69B2053C;
+			remoteInfo = MapboxGeocoder.swift;
+		};
+		517386B619A1A2537D0F0722B08AFD32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7335E9C9689F3B8A16F063A884748533;
+			remoteInfo = FacebookLogin;
+		};
 		537247B91960D4634870F66DD3117AEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -871,6 +892,13 @@
 			remoteGlobalIDString = 44CAD6CE523055ED339E87154473A254;
 			remoteInfo = Bolts;
 		};
+		A0B23CF4BCF27EF5C340C40846ED5820 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDBCFDE490CDFDABF6F16A26F346932D;
+			remoteInfo = FacebookCore;
+		};
 		A1E7ADA9414728070F39599079B02152 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -889,8 +917,8 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CD11672B6619C297B6AEE3DFB8213C59;
-			remoteInfo = FontAwesome.swift;
+			remoteGlobalIDString = 332F91393FB1DE033D370B4CEDDD5FCF;
+			remoteInfo = FBSDKShareKit;
 		};
 		B731491E920EFE20761CD552E2D4E2F8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -906,26 +934,26 @@
 			remoteGlobalIDString = 593E9479C06FB200807D11AB29EB50BD;
 			remoteInfo = FBSDKCoreKit;
 		};
-		CCEA274D6567B8AF3FC64523E9ACCC0B /* PBXContainerItemProxy */ = {
+		D1474B3A6FEC985B7EE74242B803957A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 332F91393FB1DE033D370B4CEDDD5FCF;
-			remoteInfo = FBSDKShareKit;
+			remoteGlobalIDString = 5B5AC3C06B783F8674FDB4C0F900B56A;
+			remoteInfo = FBSDKLoginKit;
 		};
-		D53E3885669EAC4D646F64CE4367BFFC /* PBXContainerItemProxy */ = {
+		D369F84E336194F47BCA68BE4F278BEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CC72CCFA99B9E8D5971AE6C759D4549;
+			remoteInfo = Motion;
+		};
+		D47F78412231ACD4A511D00C77346DFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 44CAD6CE523055ED339E87154473A254;
 			remoteInfo = Bolts;
-		};
-		DC5C5180A6D3E38231A2226F712560E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4E4A9B363151AE65FFFAFF14205541D4;
-			remoteInfo = "Material-com.cosmicmind.material.fonts";
 		};
 		E0E3F4791DA77BD55BF18F6D267C4770 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1361,6 +1389,9 @@
 		79E5542761F866006AF2C54B70DC2D6F /* FBSDKImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKImageDownloader.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKImageDownloader.m; sourceTree = "<group>"; };
 		79F5CDB670F87ED231BBB825D75987E1 /* FBSDKShareUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKShareUtility.m; path = FBSDKShareKit/FBSDKShareKit/Internal/FBSDKShareUtility.m; sourceTree = "<group>"; };
 		7A084D2106D394D5A5B77BA2E88F544F /* Pods-Revimex-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Revimex-acknowledgements.plist"; sourceTree = "<group>"; };
+		7A2D2E19AD293C291405066B0FA6A794 /* FBSDKLikeControl+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKLikeControl+Internal.h"; path = "FBSDKShareKit/FBSDKShareKit/Internal/FBSDKLikeControl+Internal.h"; sourceTree = "<group>"; };
+		7A3EB41D7877B837CA45CF31A12F8B94 /* TableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = Sources/iOS/TableView.swift; sourceTree = "<group>"; };
+		7A524F7F22028D629549A51B95D1CFE9 /* TransitionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionController.swift; path = Sources/iOS/TransitionController.swift; sourceTree = "<group>"; };
 		7A7DA99F322A04FD296AA623454A4011 /* Pods-Revimex.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Revimex.modulemap"; sourceTree = "<group>"; };
 		7ADFE756D318B8E9484A6AB21B4046F2 /* FBSDKApplicationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKApplicationDelegate.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKApplicationDelegate.h; sourceTree = "<group>"; };
 		7AE156F3264CEDC61A9DF2A7DFE3C60E /* FontAwesome.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FontAwesome.swift.modulemap; sourceTree = "<group>"; };
@@ -1871,6 +1902,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7035345390AF8C026D33145ABA4DDCCE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA30B258D2751481180A1DC2DC06C8A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		81A5C814ACEB86CB06CD6C51383982FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1924,6 +1963,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFB4C6777857DED8E0903588F87F446D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295CBAA75CDB48BD59F1B96332331002 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2964,6 +3011,93 @@
 			path = "Target Support Files/Pods-Revimex";
 			sourceTree = "<group>";
 		};
+		D75D4A15948FCAD854064FB58C1553F0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				17E4D64D634ECEC01002F92A9532CFBE /* Bolts.modulemap */,
+				F40697DF9C798CF9C4EDB96F59CE3D44 /* Bolts.xcconfig */,
+				5B72CA153946545900983E1C1F15A365 /* Bolts-dummy.m */,
+				1F35181F345FEF215F9D6B6671A2C0AE /* Bolts-prefix.pch */,
+				164A19C3EC61348E6A98121B7DC204F2 /* Bolts-umbrella.h */,
+				C5405B918EF420182376264BCBF6DCE0 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Bolts";
+			sourceTree = "<group>";
+		};
+		DACE7752B283935FF5ED801B92E599EE /* FacebookCore */ = {
+			isa = PBXGroup;
+			children = (
+				D4D7B806940EEF1D8F4A0FEA4F22DA96 /* AccessToken.swift */,
+				B31D419602A54E44684947972A518951 /* AppEvent.swift */,
+				37F5B26669A33DE575749B2D7051951D /* AppEvent.Builtin.swift */,
+				3F1608CA1FA3EE684661396FD2F4F422 /* AppEventName.swift */,
+				52DC9786235E5EC882881B862BB6E80E /* AppEventParameterName.swift */,
+				1196E16577789AD70AA47824246F0102 /* AppEventsLogger.swift */,
+				3116079B34C4F3DC28069DF1576BDD58 /* AppEventsLogger.FlushBehavior.swift */,
+				AEB05BEB03415175CEB4CE16E8DC325B /* Dictionary+KeyValueMap.swift */,
+				AEB14FA5F49101219E85AEB6478A65D1 /* GraphAPIVersion.swift */,
+				2488E0BEB4F1BE6BC486753E61440D5C /* GraphRequest.swift */,
+				81B52FBC89860E36B78C2963CD886D67 /* GraphRequestConnection.swift */,
+				D4511E7BC79E772F96E64CC461159304 /* GraphRequestConnection.Delegate.swift */,
+				ED3BBA7072B69D2F4649767787533590 /* GraphRequestDataAttachment.swift */,
+				4770A808EE74ECA8FF25CA26260CD7F2 /* GraphRequestProtocol.swift */,
+				D7F360B4348AE060AAD011EDB07F187A /* GraphRequestProtocol.Bridge.swift */,
+				2A868270417CE7AE1CBB1443C78A0703 /* GraphRequestResult.swift */,
+				F564B421FAE4AA2D4411D35872561BB1 /* GraphResponse.swift */,
+				2C1823747F8414E86A223595EED9C327 /* GraphResponseProtocol.swift */,
+				B2C037DB8DF868C1CB4C1D660558C6C1 /* Optional+OnSome.swift */,
+				5037B9CCF77CE313A7741F573B7668A7 /* Permission.swift */,
+				92C42017AB0F32196CB4434FFA3551EA /* PublishPermission.swift */,
+				EF39E86600E7C526BF012EE56A61E7D4 /* ReadPermission.swift */,
+				0BAF24D06E3CAFA694A825588D91FF3C /* SDKApplicationDelegate.swift */,
+				65FBAF1388E6AC9D010C35E56D77899C /* SDKLoggingBehavior.swift */,
+				52DCAB2C2AC5BBF4EA8BB4CEFBF665FB /* SDKSettings.swift */,
+				FDC1B1BBCE979A31BE762DA0FDFF85B3 /* UserProfile.swift */,
+				EB4E76F9F3AC0C264F7B424816B7B674 /* UserProfile.FetchResult.swift */,
+				C4F65B794161EE934241F2C5E921CD28 /* UserProfile.PictureView.swift */,
+				529ECC82F1DB33CD2DA2DD78629038C0 /* Support Files */,
+			);
+			name = FacebookCore;
+			path = FacebookCore;
+			sourceTree = "<group>";
+		};
+		E02B6058F73ACD95A228303E79FA393C /* FBSDKLoginKit */ = {
+			isa = PBXGroup;
+			children = (
+				AFF037D219D368FD6995AA338B57A8CB /* _FBSDKLoginRecoveryAttempter.h */,
+				3651FD3BAB809AF5E986A8313B11E8DC /* _FBSDKLoginRecoveryAttempter.m */,
+				99359A5B9B250C011601D04F1EAD0B24 /* FBSDKLoginButton.h */,
+				F93A27FD9951E7C4143B60F3B0BC7CA1 /* FBSDKLoginButton.m */,
+				A3D9786C67D16EE8EDC4442B0F33112C /* FBSDKLoginCompletion.h */,
+				52D4229EC43C68FF4095AFD028F6883D /* FBSDKLoginCompletion.m */,
+				F7DB10E90218FFE9BAB7716BE6E05DB3 /* FBSDKLoginCompletion+Internal.h */,
+				ACDF8E53754E0649B37CC582E2225487 /* FBSDKLoginConstants.h */,
+				FCA26F6A69F0ECB20C170A9D42E2FD40 /* FBSDKLoginConstants.m */,
+				6FAF7D26B73998F83B9E6CAC29AC4383 /* FBSDKLoginError.h */,
+				0B5B1F718FF07104DA8EC023DD837D2B /* FBSDKLoginError.m */,
+				20F1584635290672C45E9A22B27E0480 /* FBSDKLoginKit.h */,
+				7D4D3C4284A675F064C6FA27C303D6AD /* FBSDKLoginKit+Internal.h */,
+				6F56E32AB8A1D3CE8269F29D3395CB8C /* FBSDKLoginManager.h */,
+				A3CE13943CFFE6DB2715018D12E5952B /* FBSDKLoginManager.m */,
+				10E955C641FDA44122695D8BB8150F4D /* FBSDKLoginManager+Internal.h */,
+				5FA47B758E7957381F7847967C6817C4 /* FBSDKLoginManagerLogger.h */,
+				4BDC55873114842E01C1393F4A0FBCC1 /* FBSDKLoginManagerLogger.m */,
+				16070DE86AF27D5DF0ED38EAC1384D6D /* FBSDKLoginManagerLoginResult.h */,
+				99E0A9FCA4E3492F1AA3FED977A53729 /* FBSDKLoginManagerLoginResult.m */,
+				CA5F7448D827108CDD908AF3501F8036 /* FBSDKLoginManagerLoginResult+Internal.h */,
+				8C809C5A4A15080585729AE68C3588AF /* FBSDKLoginTooltipView.h */,
+				E17B2F4C6F9854B6720A38C104A7C397 /* FBSDKLoginTooltipView.m */,
+				E74F80EBC597B4029468E9A635D6030C /* FBSDKLoginUtility.h */,
+				9C218F6A171885B06E765B91F062705C /* FBSDKLoginUtility.m */,
+				EF8C3827EFDFEAD60A7606239E7A4921 /* FBSDKTooltipView.h */,
+				87B8A0899754CF2429E4EB81D0D04399 /* FBSDKTooltipView.m */,
+				3D23427A1E1D01A6F2272C18F6C21A21 /* Support Files */,
+			);
+			name = FBSDKLoginKit;
+			path = FBSDKLoginKit;
+			sourceTree = "<group>";
+		};
 		E0C5BC4DD0C3507E6365BFB96A16F209 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -3129,6 +3263,16 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0450D9B3E30276AB9BBC5AD52E281C00 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5657D7ADE2E299CCDC0D37AA58CBC45A /* MapboxGeocoder.h in Headers */,
+				5E2E9AF2FBDEBFAFC59977CD52B65605 /* MapboxGeocoder.swift-umbrella.h in Headers */,
+				89B42321680F9E126DD513BE66AD5374 /* MBPlacemarkScope.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0A5EEDFE98B0C2AE0C9DA3DE95F609CA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -3551,6 +3695,36 @@
 			productReference = 017411BF753C4CB7888951057271DA13 /* com.cosmicmind.material.icons.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
+		4DE21EDA25AA4354CD2EE9E29F977942 /* Pods-Revimex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA712D1CE36867D50D0ADF1B58A67DB1 /* Build configuration list for PBXNativeTarget "Pods-Revimex" */;
+			buildPhases = (
+				87B7A80FAB9D3ADFA0BB1A03235E1F57 /* Sources */,
+				7035345390AF8C026D33145ABA4DDCCE /* Frameworks */,
+				9A32892D2134176ACB26F13026869D1F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0F007697D98D468C4A0912826768642C /* PBXTargetDependency */,
+				7907BC926BB6B4562F417BFE8D255CC4 /* PBXTargetDependency */,
+				2397ADE6E1A17ECFB42C442EF8407706 /* PBXTargetDependency */,
+				B0A2976E8A738B2106B32C7D8AE90412 /* PBXTargetDependency */,
+				F839E1A64905C0B07B00BDC67A25818B /* PBXTargetDependency */,
+				DC84D7B4F7A124337DC2EF9F8D250FF8 /* PBXTargetDependency */,
+				DA10D2E81D01430844685E1E5B2C5975 /* PBXTargetDependency */,
+				B3A640E5A6D7AFF852D11B40524C46AF /* PBXTargetDependency */,
+				E82C9534E1377F314BC4D27B902C342F /* PBXTargetDependency */,
+				3E848AFF340851B8158AC2A22DC7E37B /* PBXTargetDependency */,
+				5D10F1F20309335554ACCBEAC90094D3 /* PBXTargetDependency */,
+				9468D77C9ED902A028BF8D0D58E60BBE /* PBXTargetDependency */,
+				F6840991B7A6A405C0228B592BD3BF09 /* PBXTargetDependency */,
+			);
+			name = "Pods-Revimex";
+			productName = "Pods-Revimex";
+			productReference = DA7E30C93D686039BA012976DBF7AC0A /* Pods_Revimex.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		4E4A9B363151AE65FFFAFF14205541D4 /* Material-com.cosmicmind.material.fonts */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E75345E3605B086BD119DAA0F24028 /* Build configuration list for PBXNativeTarget "Material-com.cosmicmind.material.fonts" */;
@@ -3864,6 +4038,7 @@
 				FF9DAEB157082D537A10095B51E9F5EA /* ImageSlideshow */,
 				F78C1CFB1095A35CB73CA669ECFFCE66 /* ImageSlideshow-ImageSlideshow */,
 				C235F77E101E742652CCF98FFDFA5182 /* IQKeyboardManagerSwift */,
+				F3B0D303D1E2FEEE382F99CB69B2053C /* MapboxGeocoder.swift */,
 				F96F9C47E1C684A2613C1477710A88FE /* Material */,
 				4E4A9B363151AE65FFFAFF14205541D4 /* Material-com.cosmicmind.material.fonts */,
 				4D778516AC933C57BD5BA3CB9537454C /* Material-com.cosmicmind.material.icons */,
@@ -4604,11 +4779,11 @@
 			target = 593E9479C06FB200807D11AB29EB50BD /* FBSDKCoreKit */;
 			targetProxy = FA292E856D14F23EA8F2CFEE5343A139 /* PBXContainerItemProxy */;
 		};
-		29B94C6EE820DC0EA659485414F1DB61 /* PBXTargetDependency */ = {
+		2397ADE6E1A17ECFB42C442EF8407706 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FBSDKCoreKit;
 			target = 593E9479C06FB200807D11AB29EB50BD /* FBSDKCoreKit */;
-			targetProxy = 709123FA3378063036E76800A835D78D /* PBXContainerItemProxy */;
+			targetProxy = 7F1AC8191AFCA01CD94A028053EAFF1C /* PBXContainerItemProxy */;
 		};
 		356AD03B931C41459D0F341592A43933 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4639,6 +4814,12 @@
 			name = Bolts;
 			target = 44CAD6CE523055ED339E87154473A254 /* Bolts */;
 			targetProxy = A88DAB774826E14D761152DC0DF2A8BC /* PBXContainerItemProxy */;
+		};
+		5D10F1F20309335554ACCBEAC90094D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MapboxGeocoder.swift;
+			target = F3B0D303D1E2FEEE382F99CB69B2053C /* MapboxGeocoder.swift */;
+			targetProxy = 4303AF2FE7AC34D4F1C5411608D86C8F /* PBXContainerItemProxy */;
 		};
 		5E93C8C6C5520A2C49BA5F22637A01B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4765,6 +4946,18 @@
 			name = FBSDKShareKit;
 			target = 332F91393FB1DE033D370B4CEDDD5FCF /* FBSDKShareKit */;
 			targetProxy = CCEA274D6567B8AF3FC64523E9ACCC0B /* PBXContainerItemProxy */;
+		};
+		F6840991B7A6A405C0228B592BD3BF09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Motion;
+			target = 0CC72CCFA99B9E8D5971AE6C759D4549 /* Motion */;
+			targetProxy = D369F84E336194F47BCA68BE4F278BEE /* PBXContainerItemProxy */;
+		};
+		F839E1A64905C0B07B00BDC67A25818B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FBSDKShareKit;
+			target = 332F91393FB1DE033D370B4CEDDD5FCF /* FBSDKShareKit */;
+			targetProxy = A9B07FC1A362E93283F79793A11D5614 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -6133,6 +6326,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		05A6FF4492A83291D9D5F25292D0A021 /* Build configuration list for PBXNativeTarget "MapboxGeocoder.swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DDA23FC3F13C8F44359DA502EF1A917 /* Debug */,
+				0464FCBD017A120FD606BBB7F366711C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		05FD8F28DE7D85F86A2D41E7AE42BEA1 /* Build configuration list for PBXNativeTarget "Pods-RevimexUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -6309,6 +6511,15 @@
 			buildConfigurations = (
 				D88A3909EE1F5CD04C59F0E32C9B8592 /* Debug */,
 				2E15E9C97438ACF0A953E95909C87920 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA712D1CE36867D50D0ADF1B58A67DB1 /* Build configuration list for PBXNativeTarget "Pods-Revimex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0902D9A73BC9A826F7EA446CBA0874B0 /* Debug */,
+				E77C1D0EB57CF96CB3B00D998972EE0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

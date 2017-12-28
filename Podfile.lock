@@ -46,6 +46,7 @@ DEPENDENCIES:
   - FontAwesome.swift
   - ImageSlideshow (~> 1.4)
   - IQKeyboardManagerSwift
+  - MapboxGeocoder.swift (~> 0.7)
   - Material (~> 2.0)
 
 SPEC CHECKSUMS:

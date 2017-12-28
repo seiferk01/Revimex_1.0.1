@@ -67,6 +67,7 @@ class RowButtonsCellController: UITableViewCell {
         btnEditar.isHidden = false;
         btnGuardar.isHidden = true;
         infoUserController.disable_EnableAllSub();
+        infoUserController.infoCargada = false;
     }
     
 }

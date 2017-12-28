@@ -381,7 +381,11 @@ class InfoController: UIViewController, UIScrollViewDelegate {
                         let json = try JSONSerialization.jsonObject (with: data) as! [String:Any?]
                         
                         print(json)
+                        if(favs != nil){
+                            
+                            favs.msotrarFavoritos(userId: UserDefaults.standard.integer(forKey: "userId"));
                         
+                        }
                         if let jsonFavoritos = json["favoritos"] as? [Int]{
                             favoritos = jsonFavoritos
                         }

@@ -48,6 +48,7 @@ class DatosPrincipalesCellController: UITableViewCell,TextFieldDelegate {
         txFlNombreUsuario.placeholder = "Nombre de Usuario";
         txFlNombreUsuario.placeholderAnimation = .default;
         txFlNombreUsuario.delegate = self;
+        txFlNombreUsuario.isEnabled = false;
         txFlNombreUsuario.layer.cornerRadius = 10;
         
         selectionStyle = .none;
@@ -72,11 +73,7 @@ class DatosPrincipalesCellController: UITableViewCell,TextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if(textField.tag == 1){
-            infoUserController.nomUsu = textField.text
-        }else{
-            infoUserController.estado = textField.text;
-        }
+        
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

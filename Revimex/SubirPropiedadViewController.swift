@@ -41,11 +41,13 @@ class SubirPropiedadViewController: UIViewController{
     };
     
     private var org_Btn:orgBtn!;
-    
+    public var queryDireccion:String!;
     
     var detallesInmueble: DetallesInmuebleController!;
-    var ubicacionInmueble: UbicacionInmuebleController!;
+    //var ubicacionInmueble: UbicacionInmuebleController!;
     var fotosInmueble: FotosInmuebleController!;
+    var mapaUbicacionInmueble: MapaUbicacionInmueble!;
+    var ubicacionExtraInmueble: UbicacionExtraInmuebleController!;
     
     var views:[UIViewController?]!;
     
@@ -65,15 +67,16 @@ class SubirPropiedadViewController: UIViewController{
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
         
         detallesInmueble = storyboard.instantiateViewController(withIdentifier: "DetallesInmueble") as! DetallesInmuebleController ;
-        ubicacionInmueble = storyboard.instantiateViewController(withIdentifier: "UbicacionInmueble") as! UbicacionInmuebleController;
+        //ubicacionInmueble = storyboard.instantiateViewController(withIdentifier: "UbicacionInmueble") as! UbicacionInmuebleController;
+        mapaUbicacionInmueble = storyboard.instantiateViewController(withIdentifier: "ConfirmarUbicacionInmueble") as! MapaUbicacionInmueble;
+        ubicacionExtraInmueble = storyboard.instantiateViewController(withIdentifier: "UbicacionExtraInmueble") as! UbicacionExtraInmuebleController;
         fotosInmueble = storyboard.instantiateViewController(withIdentifier: "FotosInmueble") as! FotosInmuebleController;
         
+        ubicacionExtraInmueble.subirPropiedad = self;
         fotosInmueble.sizeMax = cnVwFormularios.frame;
+        //ubicacionInmueble.subirPropiedad = self;
         
-        
-        views = [detallesInmueble,ubicacionInmueble,fotosInmueble];
-        
-        
+        views = [detallesInmueble,mapaUbicacionInmueble,ubicacionExtraInmueble,fotosInmueble];
         
         btnSig = Utilities.genearSombras(btnSig);
         btnSig.tag = 2;
@@ -119,7 +122,7 @@ class SubirPropiedadViewController: UIViewController{
             layAnt.cornerRadius = 18;
             btnAnt = cambiarBtn(titulo: String.fontAwesomeIcon(name: .chevronLeft), btn: btnAnt, id: 1, layer: layAnt, font: UIFont.fontAwesome(ofSize: 34), accion: #selector(actAnt(_:)));
         }
-        if(cont == 2){
+        if(cont == 3){
             let laySig = btnSig.layer;
             laySig.cornerRadius = 0;
             btnSig = cambiarBtn(titulo: "Guardar", btn: btnSig,id: 0,layer: laySig,font: UIFont(name: "HelveticaNeue-Bold", size: 20)!,accion: #selector(guardar));
@@ -128,17 +131,27 @@ class SubirPropiedadViewController: UIViewController{
             laySig.cornerRadius = 18;
             btnSig = cambiarBtn(titulo: String.fontAwesomeIcon(name: .chevronRight), btn: btnSig,id: 1, layer: laySig, font: UIFont.fontAwesome(ofSize: 34), accion: #selector(actSig(_:)));
         }
+        
         actualViewController = views[cont];
     }
     
     @IBAction func actSig(_ sender: UIButton) {
         if(validar()){
-            if(cont<3){
+            
+            if(actualViewController is MapaUbicacionInmueble){
+                ubicacionExtraInmueble.rows = mapaUbicacionInmueble.obtValores();
+            }
+            if(cont<4){
                 cont = cont + 1;
                 actualizar();
             }
-        }else{
-            present(Utilities.showAlertSimple("Aviso", "Por favor llene los campos en rojo"), animated: true);
+        }
+    }
+    
+    public func byPass(){
+        OperationQueue.main.addOperation {
+            self.cont = self.cont + 1;
+            self.actualizar();
         }
     }
     
@@ -213,15 +226,45 @@ class SubirPropiedadViewController: UIViewController{
     @objc func guardar(){
         if(actualViewController as! FormValidate).esValido(){
             let rowsDetalles = (detallesInmueble)?.obtValores()!;
-            let rowsUbicacion = (ubicacionInmueble)?.obtValores()!;
+            let rowsUbicacion = (ubicacionExtraInmueble)?.obtValores()!;
             let rowsFotos = (fotosInmueble)?.obtValores()!;
             let rowTotal = [
                 "detallesInmueble" : rowsDetalles!,
-                "ubicacionInmueble" : rowsUbicacion!,
-                "fotosInmueble" : rowsFotos!
+                "ubicacionInmueble" : rowsUbicacion
             ];
             print(rowTotal);
+            do{
+                let data = try JSONSerialization.data(withJSONObject: rowTotal , options: .prettyPrinted);
+                let dataString:String! = String(data: data, encoding: .utf8);
+                 print(dataString);
+                //subirPropiedad(data: data);
+            }catch{
+                print(error);
+            }
         };
+    }
+    
+    func subirPropiedad(data:Data!){
+        let url = "http://18.221.106.92/api/public/apps/prueba";
+        guard let urlinfo = URL(string: url) else{print("Error URL"); return};
+        var request = URLRequest(url: urlinfo);
+        request.httpMethod = "POST";
+        request.httpBody = data;
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type");
+        let session = URLSession.shared;
+        session.dataTask(with: request){(data,response,error) in
+            if(error == nil){
+                print(response);
+                if let data = data{
+                    do{
+                        let json = try JSONSerialization.jsonObject(with: data)
+                        print(json)
+                    }catch{
+                        print(error);
+                    }
+                }
+            }
+            }.resume();
     }
     
 }

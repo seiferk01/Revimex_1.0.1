@@ -19,6 +19,8 @@ import Material
 //
 
 //genera un borde inferior en un campo de texto
+
+
 extension UITextField {
     func borderBottom(color: UIColor,borderSize: CGFloat){
         let border = CALayer()
@@ -109,13 +111,48 @@ extension UIViewController
     }
 }
 
+class AddressComponent{
+    
+    enum Tipo: String{
+        case
+        street_number = "street_number",
+        political = "political",
+        sublocality = "sublocality",
+        neighborhood = "neighborhood",
+        route = "route",
+        sublocality_level_1 = "sublocality_level_1",
+        locality = "locality",
+        administrative_area_level_1 = "administrative_area_level_1",
+        administrative_area_level_2 = "administrative_area_level_2",
+        administrative_area_level_3 = "administrative_area_level_3",
+        administrative_area_level_4 = "administrative_area_level_4",
+        administrative_area_level_5 = "administrative_area_level_5",
+        country = "country",
+        postal_code = "postal_code",
+        colloquial_area = "coloquial_area"
+    };
+    
+    public var longName:String!;
+    public var shortName:String!;
+    public var types:[Tipo]!;
+    
+    init(longName:String!,shortName:String!,types:[Tipo]!) {
+        self.longName = longName;
+        self.shortName = shortName;
+        self.types = types;
+    }
+}
+
 protocol InfoCells{
     var idTipo:String!{get set};
     var controller:UITableViewCell!{get};
     func setController(controller: UITableViewCell!);
 }
 
+
 extension TextField{
+    
+    // Cambia el color del TextField si esta habilitado o deshabilitado
     func colorEnable(){
         if(isEnabled == false){
             placeholderNormalColor = Color.lightGray;
@@ -124,12 +161,25 @@ extension TextField{
             dividerNormalColor = Color.lightGray;
             textColor = Color.lightGray;
         }else{
-            placeholderNormalColor = Color.blue.base;
+            placeholderNormalColor = Color.black;
             placeholderActiveColor = Color.blue.base;
             dividerActiveColor = Color.blue.base;
             dividerNormalColor = Color.blue.base;
             textColor = Color.black;
         }
+    }
+    
+    func colorHighlight(){
+        placeholderNormalColor = Color.black;
+        placeholderActiveColor = Color.black;
+        dividerActiveColor = Color.black;
+        dividerNormalColor = Color.black;
+        textColor = Color.lightGray;
+    }
+    
+    // Devuelve la cadena actual que contiene el TextField
+    func getActualText() -> String! {
+        return self.text
     }
 }
 
@@ -229,6 +279,13 @@ class Utilities: NSObject {
     public static let ESTADOS:String! = "http://18.221.106.92/api/public/propiedades/comboEstado";
     
     public static let MUNICIPIOS:String! = "http://18.221.106.92/api/public/propiedades/comboMunicipio";
+    
+    public static func formatURLLatLng(lat:Double!,lng:Double!)->String!{
+        let latlng = "latlng=\(String(format: "%.13f", lat)),\(String(format: "%.13f", lng))";
+        let latlngCode:String! = latlng.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!;
+        let urlGeocoding = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuwBiNaQQcYb6yXDoxEDBASvrtjWgc03Q&"+latlngCode;
+        return urlGeocoding;
+    }
     
     //recibe una url en tipo string, la procesa y la regresa como imagen
     public static func traerImagen(urlImagen: String) -> UIImage{
@@ -339,4 +396,71 @@ class Utilities: NSObject {
     }
     
     
+    public static func getDireccion(lat:Double!,lng:Double!,completado:@escaping(_ datos:[AddressComponent?])->Void){
+        var datos:[AddressComponent?] = [];
+        let urlLatLng:String! = formatURLLatLng(lat: lat, lng: lng);
+        guard let url = URL(string: urlLatLng) else{return;};
+        var request = URLRequest(url:url);
+        request.httpMethod = "POST";
+        let session = URLSession.shared;
+        session.dataTask(with: request){(data,response,error) in
+            if let data = data{
+                do{
+                    
+                    let json = try JSONSerialization.jsonObject(with: data) as! [String:Any?];
+                    let result = json["results"] as? NSArray;
+                    let element = (result?.firstObject) as? NSDictionary;
+                    let addressComponents = element!["address_components"] as? NSArray;
+                    
+                    for component in addressComponents!{
+                        let component = (component as! NSDictionary);
+                        let tiposString = component["types"] as! NSArray;
+                        let longName = component["long_name"] as! String!;
+                        let shortName = component["short_name"] as! String!;
+                        var tipos:[AddressComponent.Tipo] = [];
+                        for tipo in tiposString{
+                            tipos.append(AddressComponent.Tipo(rawValue: tipo as! String)!);
+                        }
+                        datos.append(AddressComponent(longName: longName, shortName: shortName, types:tipos));
+                    }
+                    
+                    completado(datos);
+                    
+                }catch{
+                    print(error);
+                }
+            }
+            }.resume();
+        
+    }
+    
+    //Devuelve una funcion asincrona,donde se encuentra una latitud y una longitud, recive una Direccion
+    public static func getDireccion(direccion:String!,completado:@escaping(_ datos:[String:Double?])->Void){
+        var datos:[String:Double?] = [:];
+        let encodeDireccion = direccion.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!;
+        let urlRequest = GEOCODING_URL+(encodeDireccion);
+        guard let url = URL(string: urlRequest) else{return;};
+        var request = URLRequest(url: url);
+        request.httpMethod = "POST";
+        let session = URLSession.shared;
+        session.dataTask(with: request){ (data,response,error) in
+            
+            if let data = data{
+                
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data) as! [String:Any?];
+                    let result = json["results"] as? NSArray;
+                    let element = (result?.firstObject as? NSDictionary);
+                    let geometry = element!["geometry"] as? NSDictionary;
+                    
+                    datos["lat"] = ((geometry!["location"] as? NSDictionary)!["lat"] as! Double!);
+                    datos["lng"] = ((geometry!["location"] as? NSDictionary)!["lng"] as! Double!);
+                    completado(datos);
+                }catch{
+                    print(error);
+                }
+            }
+            
+            }.resume();
+    }
 }
