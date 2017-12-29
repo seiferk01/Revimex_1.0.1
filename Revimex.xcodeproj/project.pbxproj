@@ -68,6 +68,7 @@
 		522923841FF470F500318575 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229237F1FF470F400318575 /* Utilities.swift */; };
 		522923851FF470F500318575 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522923801FF470F400318575 /* Details.swift */; };
 		522923881FF4715100318575 /* FormContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522923871FF4715100318575 /* FormContainerController.swift */; };
+		522923901FF483D200318575 /* InversionistaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229238F1FF483D200318575 /* InversionistaController.swift */; };
 		5231C1081FCD0FA500ED4C54 /* favoritoSeleccionado.png in Resources */ = {isa = PBXBuildFile; fileRef = 5231C1071FCD0FA200ED4C54 /* favoritoSeleccionado.png */; };
 		5253A4A71FEB1D400061C4C6 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5253A4A61FEB1D3F0061C4C6 /* DescriptionViewController.swift */; };
 		526DC5E51FB157AE007CD85F /* revimex.png in Resources */ = {isa = PBXBuildFile; fileRef = 526DC5E41FB157AE007CD85F /* revimex.png */; };
@@ -233,6 +234,7 @@
 		5229237F1FF470F400318575 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = Revimex/Objects/Utilities.swift; sourceTree = SOURCE_ROOT; };
 		522923801FF470F400318575 /* Details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Details.swift; path = Revimex/Objects/Details.swift; sourceTree = SOURCE_ROOT; };
 		522923871FF4715100318575 /* FormContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormContainerController.swift; path = Revimex/ReusableControllers/FormContainerController.swift; sourceTree = SOURCE_ROOT; };
+		5229238F1FF483D200318575 /* InversionistaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InversionistaController.swift; sourceTree = "<group>"; };
 		5231C1071FCD0FA200ED4C54 /* favoritoSeleccionado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritoSeleccionado.png; sourceTree = "<group>"; };
 		5253A4A61FEB1D3F0061C4C6 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		526DC5E41FB157AE007CD85F /* revimex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = revimex.png; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				1148A61A1FDF493000D57758 /* FotosInmuebleController.swift */,
 				529858B01FDF3B3900685F5D /* InfoController.swift */,
 				529810B11FD61656002723D1 /* InfoUserController.swift */,
+				5229238F1FF483D200318575 /* InversionistaController.swift */,
 				528B6EA21FD9D9ED000015F7 /* LineasInfoController.swift */,
 				11DFB5041FE2FFA90054EB0B /* LineasNegociosController.swift */,
 				5221BE181FBE8A7200D0F89C /* LogInController.swift */,
@@ -1035,6 +1038,7 @@
 				11788F281FE06E1D0070F7CF /* FormValidate.swift in Sources */,
 				522923821FF470F500318575 /* Favorito.swift in Sources */,
 				52B734F51FDB31280028F2F7 /* UbicacionInmuebleController.swift in Sources */,
+				522923901FF483D200318575 /* InversionistaController.swift in Sources */,
 				52B7200B1FA785F500F447DA /* AppDelegate.swift in Sources */,
 				1148A61B1FDF493000D57758 /* FotosInmuebleController.swift in Sources */,
 				110A3DDE1FEB015600C47BBF /* FormView.swift in Sources */,

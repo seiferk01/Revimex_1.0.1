@@ -295,7 +295,9 @@ class Utilities: NSObject {
         
         if let data = imgURL as URL?{
             if let data = NSData(contentsOf: data){
-                imagen = UIImage(data: data as Data)
+                if UIImage(data: data as Data) != nil{
+                    imagen = UIImage(data: data as Data)
+                }
             }
         }
         
